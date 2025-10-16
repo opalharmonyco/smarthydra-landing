@@ -359,9 +359,9 @@
       }
     }
 
-    &.premium {
-      background: linear-gradient(135deg, rgba(100, 181, 246, 0.15), rgba(100, 181, 246, 0.08));
-      border: 1.5px solid rgba(100, 181, 246, 0.3);
+    &.genius-hydra {
+      background: linear-gradient(135deg, rgba(0, 188, 212, 0.15), rgba(0, 188, 212, 0.08));
+      border: 1.5px solid rgba(0, 188, 212, 0.3);
       animation: subtlePulse 4s ease-in-out infinite;
 
       .badge {
@@ -370,31 +370,8 @@
         left: 50%;
         transform: translateX(-50%);
         
-        background: #64B5F6;
-        color: #000;
-        padding: $space-2 $space-4;
-        border-radius: $radius-full;
-        font-size: $text-sm;
-        font-weight: $font-bold;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 2rem;
-      }
-    }
-
-    &.pro {
-      background: linear-gradient(135deg, rgba(255, 202, 40, 0.15), rgba(255, 202, 40, 0.08));
-      border: 1.5px solid rgba(255, 202, 40, 0.3);
-
-      .badge {
-        position: absolute;
-        top: -$space-3;
-        left: 50%;
-        transform: translateX(-50%);
-        
-        background: #FFCA28;
-        color: #000;
+        background: $water-blue;
+        color: white;
         padding: $space-2 $space-4;
         border-radius: $radius-full;
         font-size: $text-sm;
@@ -431,12 +408,8 @@
       }
     }
 
-    &.premium .plan-price {
-      color: #64B5F6;
-    }
-
-    &.pro .plan-price {
-      color: #FFCA28;
+    &.genius-hydra .plan-price {
+      color: $water-blue;
     }
 
     .plan-description {
@@ -480,23 +453,13 @@
       }
     }
 
-    &.premium .cta {
-      background: #64B5F6;
-      color: #000;
+    &.genius-hydra .cta {
+      background: $water-blue;
+      color: white;
       border: none;
 
       &:hover {
-        background: lighten(#64B5F6, 10%);
-      }
-    }
-
-    &.pro .cta {
-      background: #FFCA28;
-      color: #000;
-      border: none;
-
-      &:hover {
-        background: lighten(#FFCA28, 10%);
+        background: lighten($water-blue, 10%);
       }
     }
   }
