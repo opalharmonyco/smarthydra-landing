@@ -347,6 +347,7 @@
     &.premium {
       background: linear-gradient(135deg, rgba(100, 181, 246, 0.15), rgba(100, 181, 246, 0.08));
       border: 1.5px solid rgba(100, 181, 246, 0.3);
+      animation: subtlePulse 4s ease-in-out infinite;
 
       .badge {
         position: absolute;

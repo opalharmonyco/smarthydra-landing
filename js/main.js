@@ -107,40 +107,68 @@
 
     // ===== LANGUAGE SELECTOR =====
     function initializeLanguageSelector() {
+        console.log('Initializing language selector...');
+        
         // Initialize language from localStorage or browser
         initializeLanguage();
         
         // Desktop language selector
         if (languageBtn && languageDropdown) {
-            languageBtn.addEventListener('click', toggleLanguageDropdown);
+            console.log('Desktop language selector found');
+            languageBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleLanguageDropdown();
+            });
             
             // Handle language option clicks
             languageDropdown.addEventListener('click', (e) => {
-                if (e.target.closest('.language-option')) {
-                    const lang = e.target.closest('.language-option').dataset.lang;
+                e.stopPropagation();
+                const option = e.target.closest('.language-option');
+                if (option) {
+                    const lang = option.dataset.lang;
+                    console.log('Language selected:', lang);
                     selectLanguage(lang);
                     closeLanguageDropdown();
                 }
             });
+        } else {
+            console.log('Desktop language selector elements not found');
         }
         
         // Mobile language selector
         if (mobileLanguageBtn && mobileLanguageDropdown) {
-            mobileLanguageBtn.addEventListener('click', toggleMobileLanguageDropdown);
+            console.log('Mobile language selector found');
+            mobileLanguageBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleMobileLanguageDropdown();
+            });
             
             // Handle mobile language option clicks
             mobileLanguageDropdown.addEventListener('click', (e) => {
-                if (e.target.closest('.language-option')) {
-                    const lang = e.target.closest('.language-option').dataset.lang;
+                e.stopPropagation();
+                const option = e.target.closest('.language-option');
+                if (option) {
+                    const lang = option.dataset.lang;
+                    console.log('Mobile language selected:', lang);
                     selectLanguage(lang);
                     closeMobileLanguageDropdown();
                 }
             });
+        } else {
+            console.log('Mobile language selector elements not found');
         }
         
         // Close dropdowns when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.language-selector')) {
+                closeLanguageDropdown();
+                closeMobileLanguageDropdown();
+            }
+        });
+        
+        // Add keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
                 closeLanguageDropdown();
                 closeMobileLanguageDropdown();
             }
@@ -173,13 +201,57 @@
         currentLanguage = lang;
         localStorage.setItem('smarthydra-language', lang);
         updateLanguageDisplay();
+        updatePageContent(lang);
         
         // Track language change
         trackEvent('Language', 'Changed', lang);
         
-        // For now, just update the display
-        // In a full implementation, you would reload the page with new language
         console.log(`Language changed to: ${lang}`);
+    }
+    
+    function updatePageContent(lang) {
+        // Simple content translation - in a real implementation, you'd have full translations
+        const translations = {
+            en: {
+                'hero-title': 'Your Smart Hydration Guardian',
+                'hero-subtitle': 'Meet SmartHydra, your friendly hydration guardian with multiple smart heads watching over your daily water intake. Intelligent reminders and personalized tracking to keep you perfectly hydrated.',
+                'features-title': 'Why Choose SmartHydra?',
+                'pricing-title': 'Choose Your Hydration Plan',
+                'pricing-subtitle': 'Start free and upgrade when you\'re ready for advanced features and unlimited tracking.'
+            },
+            el: {
+                'hero-title': 'Ο Έξυπνος Φύλακας Υδροποσίας σας',
+                'hero-subtitle': 'Γνωρίστε το SmartHydra, τον φιλικό φύλακα υδροποσίας σας με πολλαπλά έξυπνα κεφάλια που φροντίζουν την καθημερινή πρόσληψη νερού σας. Έξυπνες υπενθυμίσεις και εξατομικευμένη παρακολούθηση για να παραμείνετε τέλεια ενυδατωμένοι.',
+                'features-title': 'Γιατί να επιλέξετε το SmartHydra;',
+                'pricing-title': 'Επιλέξτε το Σχέδιο Υδροποσίας σας',
+                'pricing-subtitle': 'Ξεκινήστε δωρεάν και αναβαθμίστε όταν είστε έτοιμοι για προηγμένες λειτουργίες και απεριόριστη παρακολούθηση.'
+            },
+            ru: {
+                'hero-title': 'Ваш Умный Страж Гидратации',
+                'hero-subtitle': 'Познакомьтесь с SmartHydra, вашим дружелюбным стражем гидратации с множественными умными головами, следящими за вашим ежедневным потреблением воды. Умные напоминания и персонализированное отслеживание для идеальной гидратации.',
+                'features-title': 'Почему выбрать SmartHydra?',
+                'pricing-title': 'Выберите свой план гидратации',
+                'pricing-subtitle': 'Начните бесплатно и обновитесь, когда будете готовы к расширенным функциям и неограниченному отслеживанию.'
+            }
+        };
+        
+        const content = translations[lang];
+        if (content) {
+            // Update page content
+            Object.keys(content).forEach(selector => {
+                const element = document.getElementById(selector);
+                if (element) {
+                    element.textContent = content[selector];
+                }
+            });
+            
+            // Add visual feedback
+            document.body.style.transition = 'opacity 0.3s ease';
+            document.body.style.opacity = '0.8';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 150);
+        }
     }
 
     function updateLanguageDisplay() {
@@ -215,25 +287,55 @@
 
     function toggleLanguageDropdown() {
         if (languageDropdown) {
+            const isOpen = languageDropdown.classList.contains('open');
+            console.log('Toggling desktop dropdown, currently open:', isOpen);
+            
+            // Close mobile dropdown if open
+            closeMobileLanguageDropdown();
+            
+            // Toggle desktop dropdown
             languageDropdown.classList.toggle('open');
+            
+            // Update aria-expanded
+            if (languageBtn) {
+                languageBtn.setAttribute('aria-expanded', !isOpen);
+            }
         }
     }
 
     function closeLanguageDropdown() {
         if (languageDropdown) {
             languageDropdown.classList.remove('open');
+            if (languageBtn) {
+                languageBtn.setAttribute('aria-expanded', 'false');
+            }
         }
     }
 
     function toggleMobileLanguageDropdown() {
         if (mobileLanguageDropdown) {
+            const isOpen = mobileLanguageDropdown.classList.contains('open');
+            console.log('Toggling mobile dropdown, currently open:', isOpen);
+            
+            // Close desktop dropdown if open
+            closeLanguageDropdown();
+            
+            // Toggle mobile dropdown
             mobileLanguageDropdown.classList.toggle('open');
+            
+            // Update aria-expanded
+            if (mobileLanguageBtn) {
+                mobileLanguageBtn.setAttribute('aria-expanded', !isOpen);
+            }
         }
     }
 
     function closeMobileLanguageDropdown() {
         if (mobileLanguageDropdown) {
             mobileLanguageDropdown.classList.remove('open');
+            if (mobileLanguageBtn) {
+                mobileLanguageBtn.setAttribute('aria-expanded', 'false');
+            }
         }
     }
 
