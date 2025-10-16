@@ -6,21 +6,7 @@ yarn-error.log*
 
 # Production builds
 dist/
-build/TTL:
-6 hours 
-TARGET:
-ns1.vercel-dns.com.
-TTL:
-6 hours 
-TARGET:
-ns2.vercel-dns.com.TTL:
-6 hours 
-TARGET:
-ns1.vercel-dns.com.
-TTL:
-6 hours 
-TARGET:
-ns2.vercel-dns.com.
+build/
 
 # Environment variables
 .env
@@ -60,3 +46,6 @@ coverage/
 # Temporary folders
 tmp/
 temp/
+
+# Coming soon page (handled by Vercel routing)
+coming-soon.html
