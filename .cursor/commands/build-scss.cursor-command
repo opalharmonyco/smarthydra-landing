@@ -1,0 +1,119 @@
+#!/bin/bash
+
+# Build SCSS to CSS Command
+# This command builds the SCSS files to CSS for the SmartHydra landing page
+
+echo "🎨 Building SCSS to CSS for SmartHydra Landing Page..."
+
+# Check if we're in the right directory
+if [ ! -f "package.json" ] || [ ! -d "scss" ]; then
+    echo "❌ Error: Not in the SmartHydra landing page repository directory"
+    echo "Please run this command from the smarthydra-landing-page directory"
+    exit 1
+fi
+
+# Check if node_modules exists
+if [ ! -d "node_modules" ]; then
+    echo "📦 Installing dependencies..."
+    npm install
+fi
+
+echo ""
+echo "🔧 Available build options:"
+echo ""
+
+# Show current SCSS files
+echo "📁 SCSS Structure:"
+echo "  scss/"
+echo "  ├── main.scss (main entry point)"
+echo "  ├── _variables.scss (colors, fonts, spacing)"
+echo "  ├── _mixins.scss (reusable styles)"
+echo "  ├── _base.scss (reset, typography)"
+echo "  └── _components.scss (UI components)"
+echo ""
+
+# Show build commands
+echo "🚀 Build Commands:"
+echo ""
+echo "  Development (with source maps, expanded CSS):"
+echo "    npm run dev"
+echo "    npm run watch-css"
+echo ""
+echo "  Production (compressed CSS, no source maps):"
+echo "    npm run build"
+echo "    npm run build-css"
+echo ""
+
+# Ask user which build they want
+echo "Which build would you like to run?"
+echo "1) Development build (with watch mode)"
+echo "2) Production build (one-time)"
+echo "3) Show build commands only"
+echo ""
+
+read -p "Enter your choice (1-3): " choice
+
+case $choice in
+    1)
+        echo ""
+        echo "🔄 Starting development build with watch mode..."
+        echo "This will watch for SCSS changes and rebuild automatically."
+        echo "Press Ctrl+C to stop watching."
+        echo ""
+        npm run dev
+        ;;
+    2)
+        echo ""
+        echo "🏗️  Building production CSS..."
+        npm run build
+        
+        if [ $? -eq 0 ]; then
+            echo ""
+            echo "✅ CSS build completed successfully!"
+            echo "📁 Output: css/main.css (compressed)"
+            echo ""
+            echo "💡 Next steps:"
+            echo "  - Review the generated CSS"
+            echo "  - Test the website locally"
+            echo "  - Deploy with /deploy-landing-page when ready"
+        else
+            echo "❌ CSS build failed. Check for SCSS syntax errors."
+            exit 1
+        fi
+        ;;
+    3)
+        echo ""
+        echo "📋 Manual Build Commands:"
+        echo ""
+        echo "  # Development (watch mode):"
+        echo "  npm run dev"
+        echo ""
+        echo "  # Production (one-time):"
+        echo "  npm run build"
+        echo ""
+        echo "  # Alternative production build:"
+        echo "  npm run build-css"
+        echo ""
+        echo "  # Watch mode alternative:"
+        echo "  npm run watch-css"
+        echo ""
+        ;;
+    *)
+        echo "❌ Invalid choice. Please run the command again and select 1, 2, or 3."
+        exit 1
+        ;;
+esac
+
+echo ""
+echo "📚 Build Process Details:"
+echo "  - Input: scss/main.scss"
+echo "  - Output: css/main.css"
+echo "  - Compiler: Dart Sass (via npm package)"
+echo "  - Source maps: Generated in development mode"
+echo "  - Compression: Applied in production mode"
+echo ""
+echo "🔍 Troubleshooting:"
+echo "  - SCSS syntax errors will be displayed in the terminal"
+echo "  - Check file paths in @import statements"
+echo "  - Ensure all SCSS partials exist"
+echo "  - Run 'npm install' if dependencies are missing"

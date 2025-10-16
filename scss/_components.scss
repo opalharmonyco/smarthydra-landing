@@ -329,7 +329,7 @@
     position: relative;
     transition: all $duration-normal $ease-in-out;
 
-    .badge {
+    .badge-text {
       position: relative;
       top: 5px;
     }
@@ -346,18 +346,16 @@
         left: 50%;
         transform: translateX(-50%);
         
-        .badge-text {
-          background: $success-green;
-          color: white;
-          padding: $space-2 $space-4;
-          border-radius: $radius-full;
-          font-size: $text-sm;
-          font-weight: $font-medium;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-height: 2rem;
-        }
+        background: $success-green;
+        color: white;
+        padding: $space-2 $space-4;
+        border-radius: $radius-full;
+        font-size: $text-sm;
+        font-weight: $font-medium;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2rem;
       }
     }
 
