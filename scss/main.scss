@@ -1,0 +1,325 @@
+// SmartHydra Landing Page - Main SCSS File
+// Import all partials in the correct order
+
+// 1. Variables (must come first)
+@import 'variables';
+
+// 2. Mixins (depend on variables)
+@import 'mixins';
+
+// 3. Base styles (depend on variables and mixins)
+@import 'base';
+
+// 4. Component styles (depend on all above)
+@import 'components';
+
+// ===== PAGE-SPECIFIC STYLES =====
+
+// Hero section animations
+.hero {
+  .water-drop {
+    position: relative;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: radial-gradient(circle, rgba(0, 188, 212, 0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+  }
+}
+
+// Feature icons with water theme
+.feature-card {
+  .icon {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+  }
+}
+
+// Pricing card premium glow
+.pricing-card.premium {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, $premium-gold, #FFB74D, $premium-gold);
+    border-radius: $radius-xl;
+    z-index: -1;
+    opacity: 0.3;
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+}
+
+// App store buttons
+.app-store-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-3 $space-6;
+  background: $dark-surface;
+  border: 1px solid $dark-surface-variant;
+  border-radius: $radius-lg;
+  color: $text-primary;
+  text-decoration: none;
+  transition: all $duration-normal $ease-in-out;
+  min-width: 180px;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+    border-color: $water-blue;
+  }
+
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: $space-3;
+    @include gradient-water;
+    border-radius: $radius-sm;
+    @include flex-center;
+    color: white;
+    font-size: $text-sm;
+  }
+
+  .text {
+    text-align: left;
+
+    .label {
+      @include body-small;
+      color: $text-tertiary;
+      margin-bottom: 2px;
+    }
+
+    .store {
+      font-weight: $font-semibold;
+      color: $text-primary;
+    }
+  }
+}
+
+// Loading states
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid $water-blue;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+// ===== KEYFRAME ANIMATIONS =====
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+// ===== RESPONSIVE ADJUSTMENTS =====
+@include mobile {
+  .hero {
+    min-height: 80vh;
+    padding: $space-16 0;
+
+    .title {
+      font-size: $text-3xl;
+    }
+
+    .subtitle {
+      font-size: $text-base;
+    }
+  }
+
+  .features {
+    .features-grid {
+      gap: $space-4;
+    }
+
+    .feature-card {
+      padding: $space-6;
+    }
+  }
+
+  .pricing {
+    .pricing-grid {
+      gap: $space-4;
+    }
+
+    .pricing-card {
+      padding: $space-6;
+    }
+  }
+}
+
+@include tablet {
+  .hero {
+    .cta-buttons {
+      .app-store-btn {
+        min-width: 160px;
+      }
+    }
+  }
+}
+
+// ===== PRINT STYLES =====
+@media print {
+  .nav,
+  .mobile-menu,
+  .cta-section,
+  .footer {
+    display: none;
+  }
+
+  .hero,
+  .features,
+  .pricing {
+    break-inside: avoid;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+// ===== ACCESSIBILITY IMPROVEMENTS =====
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// ===== HIGH CONTRAST MODE =====
+@media (prefers-contrast: high) {
+  .btn {
+    border: 2px solid currentColor;
+  }
+
+  .card {
+    border: 2px solid $text-primary;
+  }
+
+  .feature-card .icon {
+    border: 2px solid $water-blue;
+  }
+}
+
+// ===== DARK MODE PREFERENCES =====
+@media (prefers-color-scheme: light) {
+  // Keep dark theme as default for SmartHydra branding
+  // This ensures consistency with the app's dark mode
+}
+
+// ===== FOCUS IMPROVEMENTS =====
+.btn:focus-visible,
+.app-store-btn:focus-visible,
+a:focus-visible {
+  outline: 2px solid $water-blue;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.2);
+}
+
+// ===== PERFORMANCE OPTIMIZATIONS =====
+.hero,
+.features,
+.pricing,
+.cta-section {
+  will-change: transform;
+}
+
+.feature-card,
+.pricing-card {
+  will-change: transform, box-shadow;
+}
+
+// ===== UTILITY CLASSES FOR JAVASCRIPT =====
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s $ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s $ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.6s $ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

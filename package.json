@@ -1,0 +1,19 @@
+{
+  "name": "smarthydra-landing-page",
+  "version": "1.0.0",
+  "description": "The official landing page for SmartHydra - Your smart hydration guardian with AI-powered reminders.",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "sass scss/main.scss css/main.css --style=compressed --source-map",
+    "watch-css": "sass scss/main.scss css/main.css --watch --style=expanded --source-map",
+    "dev": "sass scss/main.scss css/main.css --watch --style=expanded --source-map",
+    "build": "sass scss/main.scss css/main.css --style=compressed --no-source-map",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.93.2"
+  }
+}

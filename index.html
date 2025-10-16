@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartHydra - Your Smart Hydration Guardian</title>
+    <meta name="description" content="Meet SmartHydra, your friendly hydration guardian with multiple smart heads watching over your daily water intake. AI-powered reminders and intelligent tracking to keep you perfectly hydrated.">
+    <meta name="keywords" content="hydration tracker, water reminder, smart hydration, health app, water intake, hydration goals">
+    <meta name="author" content="SmartHydra">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smarthydra.app/">
+    <meta property="og:title" content="SmartHydra - Your Smart Hydration Guardian">
+    <meta property="og:description" content="AI-powered hydration reminders with multiple smart heads watching over your daily water intake.">
+    <meta property="og:image" content="https://smarthydra.app/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://smarthydra.app/">
+    <meta property="twitter:title" content="SmartHydra - Your Smart Hydration Guardian">
+    <meta property="twitter:description" content="AI-powered hydration reminders with multiple smart heads watching over your daily water intake.">
+    <meta property="twitter:image" content="https://smarthydra.app/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "SmartHydra",
+        "description": "AI-powered hydration reminders with multiple smart heads watching over your daily water intake.",
+        "url": "https://smarthydra.app",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": ["iOS", "Android"],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1250"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container">
+            <div class="content">
+                <a href="#" class="logo">
+                    <div class="icon">💧</div>
+                    <div class="text">SmartHydra</div>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#testimonials">Reviews</a>
+                    <a href="mailto:feedback@smarthydra.app">Contact</a>
+                </div>
+                
+                <div class="nav-cta">
+                    <a href="#download" class="btn btn-primary">Download Free</a>
+                </div>
+                
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open mobile menu">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="header">
+            <a href="#" class="logo">
+                <div class="icon">💧</div>
+                <div class="text">SmartHydra</div>
+            </a>
+            <button class="close-btn" id="close-mobile-menu" aria-label="Close mobile menu">✕</button>
+        </div>
+        <div class="content">
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="mailto:feedback@smarthydra.app">Contact</a>
+            </div>
+            <a href="#download" class="btn btn-primary nav-cta">Download Free</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="content">
+                <div class="logo logo-large">
+                    <div class="icon water-drop">💧</div>
+                    <div class="text">SmartHydra</div>
+                </div>
+                
+                <h1 class="title">Your Smart Hydration Guardian</h1>
+                
+                <p class="subtitle">
+                    Meet SmartHydra, your friendly hydration guardian with multiple smart heads watching over your daily water intake. 
+                    AI-powered reminders and intelligent tracking to keep you perfectly hydrated.
+                </p>
+                
+                <div class="cta-buttons">
+                    <a href="#download" class="app-store-btn">
+                        <div class="icon">📱</div>
+                        <div class="text">
+                            <div class="label">Download on the</div>
+                            <div class="store">App Store</div>
+                        </div>
+                    </a>
+                    <a href="#download" class="app-store-btn">
+                        <div class="icon">🤖</div>
+                        <div class="text">
+                            <div class="label">Get it on</div>
+                            <div class="store">Google Play</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="scroll-indicator">
+                    <span>Scroll to explore</span>
+                    <div class="icon">↓</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="title">Why Choose SmartHydra?</h2>
+                <p class="subtitle">
+                    Experience the future of hydration tracking with intelligent features designed to keep you healthy and hydrated.
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">🧠</div>
+                    <h3 class="title">Smart AI Reminders</h3>
+                    <p class="description">
+                        Multiple intelligent heads that learn your schedule and remind you to hydrate at the perfect times throughout your day.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h3 class="title">Detailed Tracking</h3>
+                    <p class="description">
+                        Comprehensive analytics and insights to help you understand your hydration patterns and improve your health over time.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">🎯</div>
+                    <h3 class="title">Personalized Goals</h3>
+                    <p class="description">
+                        AI-powered goal setting based on your weight, activity level, and lifestyle for optimal hydration recommendations.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">📱</div>
+                    <h3 class="title">Cross-Platform Sync</h3>
+                    <p class="description">
+                        Seamlessly sync your data across iOS, Android, and web. Your hydration data follows you everywhere you go.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">🏆</div>
+                    <h3 class="title">Achievement System</h3>
+                    <p class="description">
+                        Gamified experience with achievements and streaks to keep you motivated and engaged with your hydration goals.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">🔒</div>
+                    <h3 class="title">Privacy First</h3>
+                    <p class="description">
+                        Your health data stays private and secure. We never sell your information and use encryption to protect your data.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof section" id="testimonials">
+        <div class="container">
+            <div class="stats">
+                <div class="stat">
+                    <span class="number">10K+</span>
+                    <span class="label">Happy Users</span>
+                </div>
+                <div class="stat">
+                    <span class="number">4.8★</span>
+                    <span class="label">App Store Rating</span>
+                </div>
+                <div class="stat">
+                    <span class="number">1M+</span>
+                    <span class="label">Glasses Tracked</span>
+                </div>
+                <div class="stat">
+                    <span class="number">95%</span>
+                    <span class="label">Goal Achievement</span>
+                </div>
+            </div>
+            
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="quote">
+                        "SmartHydra has completely changed how I think about hydration. The smart reminders are so intuitive and never annoying!"
+                    </p>
+                    <div class="author">
+                        <div class="name">Sarah M.</div>
+                        <div class="role">Fitness Enthusiast</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="quote">
+                        "Finally, a hydration app that actually works! The AI learns my patterns and reminds me at the perfect times."
+                    </p>
+                    <div class="author">
+                        <div class="name">Mike R.</div>
+                        <div class="role">Busy Professional</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="quote">
+                        "The cross-platform sync is amazing. I can track my hydration on my phone and check progress on my computer."
+                    </p>
+                    <div class="author">
+                        <div class="name">Emma L.</div>
+                        <div class="role">Health Coach</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="title">Choose Your Plan</h2>
+                <p class="subtitle">
+                    Start free and upgrade when you're ready for advanced features and unlimited tracking.
+                </p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card free">
+                    <div class="badge">Free Forever</div>
+                    <h3 class="plan-name">Free</h3>
+                    <div class="plan-price">
+                        <span class="currency">$</span>0<span class="period">/month</span>
+                    </div>
+                    <p class="plan-description">Perfect for getting started with basic hydration tracking</p>
+                    
+                    <div class="features-list">
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Basic water tracking</span>
+                        </div>
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Simple reminders</span>
+                        </div>
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Daily progress view</span>
+                        </div>
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Basic statistics</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#download" class="btn btn-secondary cta">Get Started Free</a>
+                </div>
+                
+                <div class="pricing-card premium">
+                    <div class="badge">Most Popular</div>
+                    <h3 class="plan-name">Pro</h3>
+                    <div class="plan-price">
+                        <span class="currency">$</span>2.99<span class="period">/month</span>
+                    </div>
+                    <p class="plan-description">Advanced features for serious hydration tracking</p>
+                    
+                    <div class="features-list">
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Everything in Free</span>
+                        </div>
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Smart AI reminders</span>
+                        </div>
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Unlimited reminders</span>
+                        </div>
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Advanced analytics</span>
+                        </div>
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Data export</span>
+                        </div>
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Priority support</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#download" class="btn btn-premium cta">Upgrade to Pro</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section" id="download">
+        <div class="container">
+            <div class="content">
+                <h2 class="title">Ready to Stay Hydrated?</h2>
+                <p class="subtitle">
+                    Join thousands of users who have transformed their hydration habits with SmartHydra. 
+                    Download now and start your journey to better health.
+                </p>
+                
+                <div class="cta-buttons">
+                    <a href="#" class="app-store-btn">
+                        <div class="icon">📱</div>
+                        <div class="text">
+                            <div class="label">Download on the</div>
+                            <div class="store">App Store</div>
+                        </div>
+                    </a>
+                    <a href="#" class="app-store-btn">
+                        <div class="icon">🤖</div>
+                        <div class="text">
+                            <div class="label">Get it on</div>
+                            <div class="store">Google Play</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="content">
+                <div class="section">
+                    <h3 class="title">SmartHydra</h3>
+                    <p class="description">
+                        Your smart hydration guardian with AI-powered reminders and intelligent tracking.
+                    </p>
+                </div>
+                
+                <div class="section">
+                    <h3 class="title">Product</h3>
+                    <div class="links">
+                        <a href="#features">Features</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="#testimonials">Reviews</a>
+                        <a href="#">Download</a>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3 class="title">Support</h3>
+                    <div class="links">
+                        <a href="mailto:feedback@smarthydra.app">Contact Us</a>
+                        <a href="mailto:support@smarthydra.app">Help Center</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">Community</a>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3 class="title">Contact</h3>
+                    <div class="contact">
+                        <div class="email">feedback@smarthydra.app</div>
+                        <p class="description">
+                            We'd love to hear from you! Send us your feedback, questions, or suggestions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bottom">
+                <div class="copyright">
+                    © 2024 SmartHydra. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
