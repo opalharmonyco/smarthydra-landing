@@ -370,18 +370,16 @@
         left: 50%;
         transform: translateX(-50%);
         
-        .badge-text {
-          background: #64B5F6;
-          color: #000;
-          padding: $space-2 $space-4;
-          border-radius: $radius-full;
-          font-size: $text-sm;
-          font-weight: $font-bold;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-height: 2rem;
-        }
+        background: #64B5F6;
+        color: #000;
+        padding: $space-2 $space-4;
+        border-radius: $radius-full;
+        font-size: $text-sm;
+        font-weight: $font-bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2rem;
       }
     }
 
@@ -395,18 +393,16 @@
         left: 50%;
         transform: translateX(-50%);
         
-        .badge-text {
-          background: #FFCA28;
-          color: #000;
-          padding: $space-2 $space-4;
-          border-radius: $radius-full;
-          font-size: $text-sm;
-          font-weight: $font-bold;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-height: 2rem;
-        }
+        background: #FFCA28;
+        color: #000;
+        padding: $space-2 $space-4;
+        border-radius: $radius-full;
+        font-size: $text-sm;
+        font-weight: $font-bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2rem;
       }
     }
 
