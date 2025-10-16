@@ -318,6 +318,12 @@
     @include card-pricing;
     text-align: center;
     position: relative;
+    transition: all $duration-normal $ease-in-out;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
 
     &.free {
       .badge {
@@ -325,28 +331,60 @@
         top: -$space-3;
         left: 50%;
         transform: translateX(-50%);
-        background: $water-blue;
+        background: $success-green;
         color: white;
         padding: $space-2 $space-4;
         border-radius: $radius-full;
         font-size: $text-sm;
         font-weight: $font-medium;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2rem;
       }
     }
 
     &.premium {
+      background: linear-gradient(135deg, rgba(100, 181, 246, 0.15), rgba(100, 181, 246, 0.08));
+      border: 1.5px solid rgba(100, 181, 246, 0.3);
+
       .badge {
         position: absolute;
         top: -$space-3;
         left: 50%;
         transform: translateX(-50%);
-        @include gradient-gold;
+        background: #64B5F6;
         color: #000;
         padding: $space-2 $space-4;
         border-radius: $radius-full;
         font-size: $text-sm;
         font-weight: $font-bold;
-        @include glow-gold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2rem;
+      }
+    }
+
+    &.pro {
+      background: linear-gradient(135deg, rgba(255, 202, 40, 0.15), rgba(255, 202, 40, 0.08));
+      border: 1.5px solid rgba(255, 202, 40, 0.3);
+
+      .badge {
+        position: absolute;
+        top: -$space-3;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #FFCA28;
+        color: #000;
+        padding: $space-2 $space-4;
+        border-radius: $radius-full;
+        font-size: $text-sm;
+        font-weight: $font-bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2rem;
       }
     }
 
@@ -373,6 +411,14 @@
         font-weight: $font-normal;
         color: $text-tertiary;
       }
+    }
+
+    &.premium .plan-price {
+      color: #64B5F6;
+    }
+
+    &.pro .plan-price {
+      color: #FFCA28;
     }
 
     .plan-description {
@@ -404,6 +450,36 @@
 
     .cta {
       width: 100%;
+      padding: $space-3 $space-4;
+      font-size: $text-base;
+      font-weight: $font-semibold;
+      border-radius: $radius-md;
+      transition: all $duration-normal $ease-in-out;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: $shadow-sm;
+      }
+    }
+
+    &.premium .cta {
+      background: #64B5F6;
+      color: #000;
+      border: none;
+
+      &:hover {
+        background: lighten(#64B5F6, 10%);
+      }
+    }
+
+    &.pro .cta {
+      background: #FFCA28;
+      color: #000;
+      border: none;
+
+      &:hover {
+        background: lighten(#FFCA28, 10%);
+      }
     }
   }
 }
