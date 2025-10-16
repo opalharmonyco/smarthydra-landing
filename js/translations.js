@@ -98,7 +98,7 @@ window.SmartHydraTranslations = {
     'cta-download-app-store': 'Download on the App Store',
     'cta-download-google-play': 'Get it on Google Play',
     
-    // Footer
+    // Footer Section
     'footer-smarthydra-desc': 'Your smart hydration guardian with intelligent reminders and personalized tracking.',
     'footer-product-title': 'Product',
     'footer-product-features': 'Features',
@@ -111,11 +111,23 @@ window.SmartHydraTranslations = {
     'footer-support-faq': 'FAQ',
     'footer-support-community': 'Community',
     'footer-contact-title': 'Contact',
+    'footer-contact-email': 'feedback@smarthydra.app',
     'footer-contact-desc': 'We\'d love to hear from you! Send us your feedback, questions, or suggestions.',
     'footer-copyright': '© 2025 SmartHydra. All rights reserved.',
     'footer-privacy': 'Privacy Policy',
     'footer-terms': 'Terms of Service',
     'footer-cookies': 'Cookie Policy',
+    
+    // Testimonials Section
+    'testimonial-1': 'SmartHydra has completely changed how I think about hydration. The smart reminders are so intuitive and never annoying!',
+    'testimonial-1-author': 'Sarah M.',
+    'testimonial-1-role': 'Fitness Enthusiast',
+    'testimonial-2': 'Finally, a hydration app that actually works! The intelligent system learns my patterns and reminds me at the perfect times.',
+    'testimonial-2-author': 'Mike R.',
+    'testimonial-2-role': 'Busy Professional',
+    'testimonial-3': 'The cross-platform sync is amazing. I can track my hydration on my phone and check progress on my computer.',
+    'testimonial-3-author': 'Emma L.',
+    'testimonial-3-role': 'Health Coach',
     
     // Cookie Banner
     'cookie-message': 'We use cookies to remember your language preference and improve your experience.',
@@ -234,7 +246,7 @@ window.SmartHydraTranslations = {
     'cta-download-app-store': 'Λήψη από το App Store',
     'cta-download-google-play': 'Λήψη από το Google Play',
     
-    // Footer
+    // Footer Section
     'footer-smarthydra-desc': 'Ο έξυπνος φύλακας υδροποσίας σας με έξυπνες υπενθυμίσεις και εξατομικευμένη παρακολούθηση.',
     'footer-product-title': 'Προϊόν',
     'footer-product-features': 'Χαρακτηριστικά',
@@ -247,11 +259,23 @@ window.SmartHydraTranslations = {
     'footer-support-faq': 'Συχνές Ερωτήσεις',
     'footer-support-community': 'Κοινότητα',
     'footer-contact-title': 'Επικοινωνία',
+    'footer-contact-email': 'feedback@smarthydra.app',
     'footer-contact-desc': 'Θα θέλαμε να ακούσουμε από εσάς! Στείλτε μας τα σχόλιά σας, ερωτήσεις ή προτάσεις.',
     'footer-copyright': '© 2025 SmartHydra. Όλα τα δικαιώματα διατηρούνται.',
     'footer-privacy': 'Πολιτική Απορρήτου',
     'footer-terms': 'Όροι Υπηρεσίας',
     'footer-cookies': 'Πολιτική Cookies',
+    
+    // Testimonials Section
+    'testimonial-1': 'Η SmartHydra έχει αλλάξει εντελώς τον τρόπο που σκέφτομαι την υδροποσία. Οι έξυπνες υπενθυμίσεις είναι τόσο διαισθητικές και ποτέ δεν είναι ενοχλητικές!',
+    'testimonial-1-author': 'Σάρα Μ.',
+    'testimonial-1-role': 'Λάτρης της Γυμναστικής',
+    'testimonial-2': 'Επιτέλους, μια εφαρμογή υδροποσίας που πραγματικά λειτουργεί! Το έξυπνο σύστημα μαθαίνει τα μοτίβα μου και με υπενθυμίζει στις τέλειες στιγμές.',
+    'testimonial-2-author': 'Μάικ Ρ.',
+    'testimonial-2-role': 'Απασχολημένος Επαγγελματίας',
+    'testimonial-3': 'Ο συγχρονισμός cross-platform είναι καταπληκτικός. Μπορώ να παρακολουθώ την υδροποσία μου στο τηλέφωνό μου και να ελέγχω την πρόοδο στον υπολογιστή μου.',
+    'testimonial-3-author': 'Έμμα Λ.',
+    'testimonial-3-role': 'Σύμβουλος Υγείας',
     
     // Cookie Banner
     'cookie-message': 'Χρησιμοποιούμε cookies για να θυμόμαστε την προτίμηση γλώσσας σας και να βελτιώνουμε την εμπειρία σας.',
@@ -354,8 +378,8 @@ window.SmartHydraTranslations = {
     'cta-download-app-store': 'Скачать в App Store',
     'cta-download-google-play': 'Скачать в Google Play',
     
-    // Footer
-    'footer-smarthydra-desc': 'Ваш умный страж гидратации с интеллектуальными напоминаниями и персонализированным отслеживанием.',
+    // Footer Section
+    'footer-smarthydra-desc': 'Ваш умный хранитель гидратации с интеллектуальными напоминаниями и персонализированным отслеживанием.',
     'footer-product-title': 'Продукт',
     'footer-product-features': 'Функции',
     'footer-product-pricing': 'Цены',
@@ -367,11 +391,23 @@ window.SmartHydraTranslations = {
     'footer-support-faq': 'Часто задаваемые вопросы',
     'footer-support-community': 'Сообщество',
     'footer-contact-title': 'Контакты',
-    'footer-contact-desc': 'Мы будем рады услышать от вас! Отправьте нам ваши отзывы, вопросы или предложения.',
+    'footer-contact-email': 'feedback@smarthydra.app',
+    'footer-contact-desc': 'Мы будем рады услышать от вас! Присылайте нам ваши отзывы, вопросы или предложения.',
     'footer-copyright': '© 2025 SmartHydra. Все права защищены.',
     'footer-privacy': 'Политика конфиденциальности',
     'footer-terms': 'Условия использования',
-    'footer-cookies': 'Политика cookies',
+    'footer-cookies': 'Политика файлов cookie',
+    
+    // Testimonials Section
+    'testimonial-1': 'SmartHydra полностью изменил мое представление о гидратации. Умные напоминания настолько интуитивны и никогда не раздражают!',
+    'testimonial-1-author': 'Сара М.',
+    'testimonial-1-role': 'Любитель фитнеса',
+    'testimonial-2': 'Наконец, приложение для гидратации, которое действительно работает! Интеллектуальная система изучает мои паттерны и напоминает мне в идеальное время.',
+    'testimonial-2-author': 'Майк Р.',
+    'testimonial-2-role': 'Занятый профессионал',
+    'testimonial-3': 'Кроссплатформенная синхронизация потрясающая. Я могу отслеживать свою гидратацию на телефоне и проверять прогресс на компьютере.',
+    'testimonial-3-author': 'Эмма Л.',
+    'testimonial-3-role': 'Тренер по здоровью',
     
     // Cookie Banner
     'cookie-message': 'Мы используем файлы cookie для запоминания ваших языковых предпочтений и улучшения вашего опыта.',
