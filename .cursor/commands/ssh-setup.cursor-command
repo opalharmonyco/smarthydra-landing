@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# SSH Setup for SmartHydra Landing Page Repository
+# This command sets up the correct SSH key for pushing to the repository
+
+echo "🔑 Setting up SSH for SmartHydra Landing Page Repository..."
+
+# Check if we're in the right directory
+if [ ! -f "package.json" ] || [ ! -d ".git" ]; then
+    echo "❌ Error: Not in the SmartHydra landing page repository directory"
+    echo "Please run this command from the smarthydra-landing-page directory"
+    exit 1
+fi
+
+# Start SSH agent
+echo "🚀 Starting SSH agent..."
+eval "$(ssh-agent -s)"
+
+# Add the correct SSH key
+echo "🔐 Adding SSH key for opalharmonyco account..."
+ssh-add ~/.ssh/id_ed25519_opal
+
+# Verify the key was added
+echo "✅ Verifying SSH key..."
+ssh-add -l
+
+# Test GitHub connection
+echo "🌐 Testing GitHub connection..."
+ssh -T git@github.com
+
+# Check and set correct remote URL
+echo "🔗 Checking git remote configuration..."
+CURRENT_REMOTE=$(git remote get-url origin)
+EXPECTED_REMOTE="git@github.com:opalharmonyco/smarthydra-landing.git"
+
+if [ "$CURRENT_REMOTE" != "$EXPECTED_REMOTE" ]; then
+    echo "🔧 Setting correct remote URL..."
+    git remote set-url origin "$EXPECTED_REMOTE"
+    echo "✅ Remote URL updated to: $EXPECTED_REMOTE"
+else
+    echo "✅ Remote URL is already correct: $CURRENT_REMOTE"
+fi
+
+echo ""
+echo "🎉 SSH setup complete! You can now push to the repository."
+echo ""
+echo "📋 Quick reference:"
+echo "   Repository: opalharmonyco/smarthydra-landing"
+echo "   SSH Key: ~/.ssh/id_ed25519_opal"
+echo "   Account: opalharmonyco@gmail.com"
+echo ""
+echo "💡 To push changes: git push origin main"
