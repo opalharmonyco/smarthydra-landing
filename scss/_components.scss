@@ -151,27 +151,36 @@
     gap: $space-4;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: $space-16; // Add space for scroll indicator
     @include fade-in-up(300ms);
 
     @include mobile {
       flex-direction: column;
       align-items: center;
+      margin-bottom: $space-20; // More space on mobile
     }
   }
 
   .scroll-indicator {
     position: absolute;
-    bottom: $space-8;
+    bottom: $space-6;
     left: 50%;
     transform: translateX(-50%);
     @include flex-column-center;
     color: $text-tertiary;
     font-size: $text-sm;
+    opacity: 0.7;
     @include fade-in(500ms);
+    transition: opacity $duration-normal $ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
 
     .icon {
       margin-top: $space-2;
       animation: float 2s ease-in-out infinite;
+      font-size: $text-lg;
     }
   }
 }

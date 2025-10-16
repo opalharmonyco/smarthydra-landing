@@ -210,48 +210,37 @@
     }
     
     function updatePageContent(lang) {
-        // Simple content translation - in a real implementation, you'd have full translations
-        const translations = {
-            en: {
-                'hero-title': 'Your Smart Hydration Guardian',
-                'hero-subtitle': 'Meet SmartHydra, your friendly hydration guardian with multiple smart heads watching over your daily water intake. Intelligent reminders and personalized tracking to keep you perfectly hydrated.',
-                'features-title': 'Why Choose SmartHydra?',
-                'pricing-title': 'Choose Your Hydration Plan',
-                'pricing-subtitle': 'Start free and upgrade when you\'re ready for advanced features and unlimited tracking.'
-            },
-            el: {
-                'hero-title': 'Ο Έξυπνος Φύλακας Υδροποσίας σας',
-                'hero-subtitle': 'Γνωρίστε το SmartHydra, τον φιλικό φύλακα υδροποσίας σας με πολλαπλά έξυπνα κεφάλια που φροντίζουν την καθημερινή πρόσληψη νερού σας. Έξυπνες υπενθυμίσεις και εξατομικευμένη παρακολούθηση για να παραμείνετε τέλεια ενυδατωμένοι.',
-                'features-title': 'Γιατί να επιλέξετε το SmartHydra;',
-                'pricing-title': 'Επιλέξτε το Σχέδιο Υδροποσίας σας',
-                'pricing-subtitle': 'Ξεκινήστε δωρεάν και αναβαθμίστε όταν είστε έτοιμοι για προηγμένες λειτουργίες και απεριόριστη παρακολούθηση.'
-            },
-            ru: {
-                'hero-title': 'Ваш Умный Страж Гидратации',
-                'hero-subtitle': 'Познакомьтесь с SmartHydra, вашим дружелюбным стражем гидратации с множественными умными головами, следящими за вашим ежедневным потреблением воды. Умные напоминания и персонализированное отслеживание для идеальной гидратации.',
-                'features-title': 'Почему выбрать SmartHydra?',
-                'pricing-title': 'Выберите свой план гидратации',
-                'pricing-subtitle': 'Начните бесплатно и обновитесь, когда будете готовы к расширенным функциям и неограниченному отслеживанию.'
-            }
-        };
+        // Use the comprehensive translation system
+        const translations = window.SmartHydraTranslations;
+        if (!translations || !translations[lang]) {
+            console.warn(`No translations found for language: ${lang}`);
+            return;
+        }
         
         const content = translations[lang];
-        if (content) {
-            // Update page content
-            Object.keys(content).forEach(selector => {
-                const element = document.getElementById(selector);
-                if (element) {
-                    element.textContent = content[selector];
-                }
-            });
-            
-            // Add visual feedback
-            document.body.style.transition = 'opacity 0.3s ease';
-            document.body.style.opacity = '0.8';
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 150);
-        }
+        
+        // Update all elements with data-translate attributes
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (content[key]) {
+                element.textContent = content[key];
+            }
+        });
+        
+        // Update specific elements by ID
+        Object.keys(content).forEach(key => {
+            const element = document.getElementById(key);
+            if (element) {
+                element.textContent = content[key];
+            }
+        });
+        
+        // Add visual feedback
+        document.body.style.transition = 'opacity 0.3s ease';
+        document.body.style.opacity = '0.8';
+        setTimeout(() => {
+            document.body.style.opacity = '1';
+        }, 150);
     }
 
     function updateLanguageDisplay() {
