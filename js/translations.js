@@ -14,6 +14,7 @@ const translations = {
     'hero-subtitle': 'Meet SmartHydra, your friendly hydration guardian with multiple smart heads watching over your daily water intake. Intelligent reminders and personalized tracking to keep you perfectly hydrated.',
     'hero-download-app-store': 'Download on the App Store',
     'hero-download-google-play': 'Get it on Google Play',
+    'scroll-to-explore': 'Scroll to explore',
     
     // Features Section
     'features-title': 'Why Choose SmartHydra?',
@@ -31,11 +32,11 @@ const translations = {
     'feature-cross-platform-title': 'Cross-Platform Sync',
     'feature-cross-platform-desc': 'Seamlessly sync your data across iOS, Android, and web. Your hydration data follows you everywhere you go.',
     
-    'feature-achievement-system-title': 'Achievement System',
-    'feature-achievement-system-desc': 'Gamified experience with achievements and streaks to keep you motivated and engaged with your hydration goals.',
+    'feature-achievement-title': 'Achievement System',
+    'feature-achievement-desc': 'Gamified experience with achievements and streaks to keep you motivated and engaged with your hydration goals.',
     
-    'feature-privacy-first-title': 'Privacy First',
-    'feature-privacy-first-desc': 'Your health data stays private and secure. We never sell your information and use encryption to protect your data.',
+    'feature-privacy-title': 'Privacy First',
+    'feature-privacy-desc': 'Your health data stays private and secure. We never sell your information and use encryption to protect your data.',
     
     // Social Proof Section
     'social-proof-happy-users': 'Happy Users',
@@ -139,6 +140,7 @@ const translations = {
     'hero-subtitle': 'Γνωρίστε την SmartHydra, την φιλική φύλακα υδροποσίας σας με πολλαπλά έξυπνα κεφάλια που φροντίζουν την καθημερινή πρόσληψη νερού σας. Έξυπνες υπενθυμίσεις και εξατομικευμένη παρακολούθηση για να παραμείνετε τέλεια ενυδατωμένοι.',
     'hero-download-app-store': 'Λήψη από το App Store',
     'hero-download-google-play': 'Λήψη από το Google Play',
+    'scroll-to-explore': 'Κυλήστε για να εξερευνήσετε',
     
     // Features Section
     'features-title': 'Γιατί να επιλέξετε την SmartHydra;',
@@ -146,6 +148,21 @@ const translations = {
     
     'feature-smart-reminders-title': 'Έξυπνες Υπενθυμίσεις',
     'feature-smart-reminders-desc': 'Έξυπνο σύστημα υπενθυμίσεων που δημιουργεί βέλτιστους χρονοδιαγράμματα βασισμένα στους χρόνους ξυπνήματος/ύπνου σας και διανέμει τις υπενθυμίσεις ομοιόμορφα καθ\' όλη την ημέρα σας.',
+    
+    'feature-detailed-tracking-title': 'Λεπτομερής Παρακολούθηση',
+    'feature-detailed-tracking-desc': 'Ολοκληρωμένη ανάλυση και πληροφορίες για να κατανοήσετε τα μοτίβα υδροποσίας σας και να βελτιώσετε την υγεία σας με τον καιρό.',
+    
+    'feature-personalized-goals-title': 'Εξατομικευμένοι Στόχοι',
+    'feature-personalized-goals-desc': 'Έξυπνος υπολογισμός στόχων βασισμένος στο βάρος, το επίπεδο δραστηριότητας και τον τρόπο ζωής σας για βέλτιστες συστάσεις υδροποσίας.',
+    
+    'feature-cross-platform-title': 'Συγχρονισμός Cross-Platform',
+    'feature-cross-platform-desc': 'Συγχρονίστε απρόσκοπτα τα δεδομένα σας σε iOS, Android και web. Τα δεδομένα υδροποσίας σας σας ακολουθούν παντού.',
+    
+    'feature-achievement-title': 'Σύστημα Επιτευγμάτων',
+    'feature-achievement-desc': 'Γαμιφιέμενη εμπειρία με επιτεύγματα και σειρές για να παραμείνετε κινητοποιημένοι και εμπλεγμένοι με τους στόχους υδροποσίας σας.',
+    
+    'feature-privacy-title': 'Προτεραιότητα το Απόρρητο',
+    'feature-privacy-desc': 'Τα δεδομένα υγείας σας παραμένουν ιδιωτικά και ασφαλή. Ποτέ δεν πουλάμε τις πληροφορίες σας και χρησιμοποιούμε κρυπτογράφηση για την προστασία των δεδομένων σας.',
     
     'feature-detailed-tracking-title': 'Λεπτομερής Παρακολούθηση',
     'feature-detailed-tracking-desc': 'Ολοκληρωμένες αναλύσεις και πληροφορίες για να σας βοηθήσουν να κατανοήσετε τα μοτίβα υδροποσίας σας και να βελτιώσετε την υγεία σας με τον καιρό.',

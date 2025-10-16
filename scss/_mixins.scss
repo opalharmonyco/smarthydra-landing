@@ -361,8 +361,8 @@
     opacity: 1;
   }
   50% {
-    transform: scale(1.02);
-    opacity: 0.95;
+    transform: scale(1.005); // Much more subtle scale
+    opacity: 0.98; // Barely noticeable opacity change
   }
 }
 
