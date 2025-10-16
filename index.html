@@ -73,6 +73,26 @@
                     <a href="#pricing">Pricing</a>
                     <a href="#testimonials">Reviews</a>
                     <a href="mailto:feedback@smarthydra.app">Contact</a>
+                    <div class="language-selector">
+                        <button class="language-btn" id="language-btn" aria-label="Select language">
+                            <span class="flag">🌐</span>
+                            <span class="lang-code">EN</span>
+                        </button>
+                        <div class="language-dropdown" id="language-dropdown">
+                            <button class="language-option" data-lang="en">
+                                <span class="flag">🇬🇧</span>
+                                <span class="lang-name">English</span>
+                            </button>
+                            <button class="language-option" data-lang="el">
+                                <span class="flag">🇬🇷</span>
+                                <span class="lang-name">Ελληνικά</span>
+                            </button>
+                            <button class="language-option" data-lang="ru">
+                                <span class="flag">🇷🇺</span>
+                                <span class="lang-name">Русский</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="nav-cta">
@@ -101,6 +121,26 @@
                 <a href="#pricing">Pricing</a>
                 <a href="#testimonials">Reviews</a>
                 <a href="mailto:feedback@smarthydra.app">Contact</a>
+                <div class="language-selector mobile">
+                    <button class="language-btn" id="mobile-language-btn" aria-label="Select language">
+                        <span class="flag">🌐</span>
+                        <span class="lang-code">EN</span>
+                    </button>
+                    <div class="language-dropdown" id="mobile-language-dropdown">
+                        <button class="language-option" data-lang="en">
+                            <span class="flag">🇬🇧</span>
+                            <span class="lang-name">English</span>
+                        </button>
+                        <button class="language-option" data-lang="el">
+                            <span class="flag">🇬🇷</span>
+                            <span class="lang-name">Ελληνικά</span>
+                        </button>
+                        <button class="language-option" data-lang="ru">
+                            <span class="flag">🇷🇺</span>
+                            <span class="lang-name">Русский</span>
+                        </button>
+                    </div>
+                </div>
             </div>
             <a href="#download" class="btn btn-primary nav-cta">Download Free</a>
         </div>
@@ -119,7 +159,7 @@
                 
                 <p class="subtitle">
                     Meet SmartHydra, your friendly hydration guardian with multiple smart heads watching over your daily water intake. 
-                    AI-powered reminders and intelligent tracking to keep you perfectly hydrated.
+                    Intelligent reminders and personalized tracking to keep you perfectly hydrated.
                 </p>
                 
                 <div class="cta-buttons">
@@ -160,9 +200,9 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="icon">🧠</div>
-                    <h3 class="title">Smart AI Reminders</h3>
+                    <h3 class="title">Smart Reminders</h3>
                     <p class="description">
-                        Multiple intelligent heads that learn your schedule and remind you to hydrate at the perfect times throughout your day.
+                        Intelligent reminder system that creates optimal schedules based on your wake/sleep times and distributes reminders evenly throughout your day.
                     </p>
                 </div>
                 
@@ -178,7 +218,7 @@
                     <div class="icon">🎯</div>
                     <h3 class="title">Personalized Goals</h3>
                     <p class="description">
-                        AI-powered goal setting based on your weight, activity level, and lifestyle for optimal hydration recommendations.
+                        Smart goal calculation based on your weight, activity level, and lifestyle for optimal hydration recommendations.
                     </p>
                 </div>
                 
@@ -291,15 +331,19 @@
                         </div>
                         <div class="feature">
                             <div class="icon">✓</div>
-                            <span>Simple reminders</span>
+                            <span>12 smart reminders</span>
                         </div>
                         <div class="feature">
                             <div class="icon">✓</div>
-                            <span>Daily progress view</span>
+                            <span>60-day history</span>
                         </div>
                         <div class="feature">
                             <div class="icon">✓</div>
                             <span>Basic statistics</span>
+                        </div>
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>12 achievements</span>
                         </div>
                     </div>
                     
@@ -307,12 +351,12 @@
                 </div>
                 
                 <div class="pricing-card premium">
-                    <div class="badge">Most Popular</div>
-                    <h3 class="plan-name">Pro</h3>
+                    <div class="badge">Great Value</div>
+                    <h3 class="plan-name">Premium</h3>
                     <div class="plan-price">
-                        <span class="currency">$</span>2.99<span class="period">/month</span>
+                        <span class="currency">$</span>4.99<span class="period"> one-time</span>
                     </div>
-                    <p class="plan-description">Advanced features for serious hydration tracking</p>
+                    <p class="plan-description">Unlimited local features with no ads</p>
                     
                     <div class="features-list">
                         <div class="feature">
@@ -321,11 +365,49 @@
                         </div>
                         <div class="feature">
                             <div class="icon">✓</div>
-                            <span>Smart AI reminders</span>
+                            <span>Unlimited reminders</span>
                         </div>
                         <div class="feature">
                             <div class="icon">✓</div>
-                            <span>Unlimited reminders</span>
+                            <span>Unlimited history</span>
+                        </div>
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>All achievements</span>
+                        </div>
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Ad-free experience</span>
+                        </div>
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Unlimited exports</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#download" class="btn btn-premium cta">Upgrade to Premium</a>
+                </div>
+                
+                <div class="pricing-card premium">
+                    <div class="badge">Most Popular</div>
+                    <h3 class="plan-name">Pro</h3>
+                    <div class="plan-price">
+                        <span class="currency">$</span>2.99<span class="period">/month</span>
+                    </div>
+                    <p class="plan-description">Cloud sync and multi-device access</p>
+                    
+                    <div class="features-list">
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Everything in Premium</span>
+                        </div>
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Cloud backup & sync</span>
+                        </div>
+                        <div class="feature">
+                            <div class="icon">✓</div>
+                            <span>Multi-device access</span>
                         </div>
                         <div class="feature">
                             <div class="icon">✓</div>
@@ -333,11 +415,11 @@
                         </div>
                         <div class="feature">
                             <div class="icon">✓</div>
-                            <span>Data export</span>
+                            <span>Priority support</span>
                         </div>
                         <div class="feature">
                             <div class="icon">✓</div>
-                            <span>Priority support</span>
+                            <span>Early access features</span>
                         </div>
                     </div>
                     
@@ -421,7 +503,7 @@
             
             <div class="bottom">
                 <div class="copyright">
-                    © 2024 SmartHydra. All rights reserved.
+                    © 2025 SmartHydra. All rights reserved.
                 </div>
                 <div class="legal-links">
                     <a href="#">Privacy Policy</a>

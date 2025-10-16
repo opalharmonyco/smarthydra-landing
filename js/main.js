@@ -7,12 +7,19 @@
     // ===== GLOBAL VARIABLES =====
     let isScrolling = false;
     let mobileMenuOpen = false;
+    let currentLanguage = 'en';
 
     // ===== DOM ELEMENTS =====
     const nav = document.getElementById('nav');
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const closeMobileMenu = document.getElementById('close-mobile-menu');
+    
+    // Language selector elements
+    const languageBtn = document.getElementById('language-btn');
+    const languageDropdown = document.getElementById('language-dropdown');
+    const mobileLanguageBtn = document.getElementById('mobile-language-btn');
+    const mobileLanguageDropdown = document.getElementById('mobile-language-dropdown');
 
     // ===== INITIALIZATION =====
     document.addEventListener('DOMContentLoaded', function() {
@@ -20,6 +27,7 @@
         initializeScrollAnimations();
         initializeSmoothScrolling();
         initializeMobileMenu();
+        initializeLanguageSelector();
         initializePerformanceOptimizations();
         
         // Add loading class removal
@@ -94,6 +102,138 @@
                     closeMobileMenuHandler();
                 }
             });
+        }
+    }
+
+    // ===== LANGUAGE SELECTOR =====
+    function initializeLanguageSelector() {
+        // Initialize language from localStorage or browser
+        initializeLanguage();
+        
+        // Desktop language selector
+        if (languageBtn && languageDropdown) {
+            languageBtn.addEventListener('click', toggleLanguageDropdown);
+            
+            // Handle language option clicks
+            languageDropdown.addEventListener('click', (e) => {
+                if (e.target.closest('.language-option')) {
+                    const lang = e.target.closest('.language-option').dataset.lang;
+                    selectLanguage(lang);
+                    closeLanguageDropdown();
+                }
+            });
+        }
+        
+        // Mobile language selector
+        if (mobileLanguageBtn && mobileLanguageDropdown) {
+            mobileLanguageBtn.addEventListener('click', toggleMobileLanguageDropdown);
+            
+            // Handle mobile language option clicks
+            mobileLanguageDropdown.addEventListener('click', (e) => {
+                if (e.target.closest('.language-option')) {
+                    const lang = e.target.closest('.language-option').dataset.lang;
+                    selectLanguage(lang);
+                    closeMobileLanguageDropdown();
+                }
+            });
+        }
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.language-selector')) {
+                closeLanguageDropdown();
+                closeMobileLanguageDropdown();
+            }
+        });
+    }
+
+    function initializeLanguage() {
+        // Check localStorage first
+        const savedLanguage = localStorage.getItem('smarthydra-language');
+        if (savedLanguage && ['en', 'el', 'ru'].includes(savedLanguage)) {
+            currentLanguage = savedLanguage;
+        } else {
+            // Auto-detect browser language
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('el')) {
+                currentLanguage = 'el';
+            } else if (browserLang.startsWith('ru')) {
+                currentLanguage = 'ru';
+            } else {
+                currentLanguage = 'en'; // Default fallback
+            }
+        }
+        
+        updateLanguageDisplay();
+    }
+
+    function selectLanguage(lang) {
+        if (currentLanguage === lang) return;
+        
+        currentLanguage = lang;
+        localStorage.setItem('smarthydra-language', lang);
+        updateLanguageDisplay();
+        
+        // Track language change
+        trackEvent('Language', 'Changed', lang);
+        
+        // For now, just update the display
+        // In a full implementation, you would reload the page with new language
+        console.log(`Language changed to: ${lang}`);
+    }
+
+    function updateLanguageDisplay() {
+        const langConfig = {
+            en: { code: 'EN', flag: '🇬🇧' },
+            el: { code: 'EL', flag: '🇬🇷' },
+            ru: { code: 'RU', flag: '🇷🇺' }
+        };
+        
+        const config = langConfig[currentLanguage];
+        
+        // Update desktop selector
+        if (languageBtn) {
+            const flagSpan = languageBtn.querySelector('.flag');
+            const codeSpan = languageBtn.querySelector('.lang-code');
+            if (flagSpan) flagSpan.textContent = config.flag;
+            if (codeSpan) codeSpan.textContent = config.code;
+        }
+        
+        // Update mobile selector
+        if (mobileLanguageBtn) {
+            const flagSpan = mobileLanguageBtn.querySelector('.flag');
+            const codeSpan = mobileLanguageBtn.querySelector('.lang-code');
+            if (flagSpan) flagSpan.textContent = config.flag;
+            if (codeSpan) codeSpan.textContent = config.code;
+        }
+        
+        // Update active states
+        document.querySelectorAll('.language-option').forEach(option => {
+            option.classList.toggle('active', option.dataset.lang === currentLanguage);
+        });
+    }
+
+    function toggleLanguageDropdown() {
+        if (languageDropdown) {
+            languageDropdown.classList.toggle('open');
+        }
+    }
+
+    function closeLanguageDropdown() {
+        if (languageDropdown) {
+            languageDropdown.classList.remove('open');
+        }
+    }
+
+    function toggleMobileLanguageDropdown() {
+        if (mobileLanguageDropdown) {
+            mobileLanguageDropdown.classList.toggle('open');
+        }
+    }
+
+    function closeMobileLanguageDropdown() {
+        if (mobileLanguageDropdown) {
+            mobileLanguageDropdown.classList.remove('open');
         }
     }
 
