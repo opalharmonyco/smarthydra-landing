@@ -21,6 +21,56 @@
     const mobileLanguageBtn = document.getElementById('mobile-language-btn');
     const mobileLanguageDropdown = document.getElementById('mobile-language-dropdown');
 
+    // ===== COOKIE BANNER =====
+    function initializeCookieBanner() {
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('cookie-accept');
+        const declineBtn = document.getElementById('cookie-decline');
+        
+        if (!cookieBanner || !acceptBtn || !declineBtn) {
+            console.log('Cookie banner elements not found');
+            return;
+        }
+        
+        // Check if user has already made a choice
+        const cookieChoice = localStorage.getItem('smarthydra-cookie-choice');
+        if (cookieChoice) {
+            console.log('Cookie choice already made:', cookieChoice);
+            return; // Don't show banner
+        }
+        
+        // Show banner after a short delay
+        setTimeout(() => {
+            cookieBanner.classList.add('show');
+        }, 1000);
+        
+        // Handle accept
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('smarthydra-cookie-choice', 'accepted');
+            hideCookieBanner();
+            console.log('Cookies accepted');
+        });
+        
+        // Handle decline
+        declineBtn.addEventListener('click', () => {
+            localStorage.setItem('smarthydra-cookie-choice', 'declined');
+            // Remove language preference if declined
+            localStorage.removeItem('smarthydra-language');
+            hideCookieBanner();
+            console.log('Cookies declined');
+        });
+    }
+    
+    function hideCookieBanner() {
+        const cookieBanner = document.getElementById('cookie-banner');
+        if (cookieBanner) {
+            cookieBanner.classList.remove('show');
+            setTimeout(() => {
+                cookieBanner.style.display = 'none';
+            }, 300);
+        }
+    }
+
     // ===== INITIALIZATION =====
     document.addEventListener('DOMContentLoaded', function() {
         initializeNavigation();
@@ -29,6 +79,7 @@
         initializeMobileMenu();
         initializeLanguageSelector();
         initializePerformanceOptimizations();
+        initializeCookieBanner(); // Initialize cookie banner
         
         // Add loading class removal
         document.body.classList.remove('loading');
@@ -180,9 +231,11 @@
         const savedLanguage = localStorage.getItem('smarthydra-language');
         if (savedLanguage && ['en', 'el', 'ru'].includes(savedLanguage)) {
             currentLanguage = savedLanguage;
+            console.log('Using saved language:', savedLanguage);
         } else {
             // Auto-detect browser language
             const browserLang = navigator.language || navigator.userLanguage;
+            console.log('Browser language detected:', browserLang);
             if (browserLang.startsWith('el')) {
                 currentLanguage = 'el';
             } else if (browserLang.startsWith('ru')) {
@@ -190,9 +243,11 @@
             } else {
                 currentLanguage = 'en'; // Default fallback
             }
+            console.log('Auto-detected language:', currentLanguage);
         }
         
         updateLanguageDisplay();
+        updatePageContent(currentLanguage); // Apply translations immediately
     }
 
     function selectLanguage(lang) {

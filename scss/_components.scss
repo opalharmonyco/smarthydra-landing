@@ -151,13 +151,13 @@
     gap: $space-4;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: $space-16; // Add space for scroll indicator
+    margin-bottom: $space-24; // Much more space for scroll indicator
     @include fade-in-up(300ms);
 
     @include mobile {
       flex-direction: column;
       align-items: center;
-      margin-bottom: $space-20; // More space on mobile
+      margin-bottom: $space-32; // Even more space on mobile
     }
   }
 
@@ -900,6 +900,97 @@
 
     .nav-cta {
       width: 100%;
+    }
+  }
+}
+
+// ===== COOKIE BANNER =====
+.cookie-banner {
+  position: fixed;
+  bottom: $space-6;
+  left: $space-6;
+  right: $space-6;
+  background: $dark-surface;
+  border: 1px solid $dark-surface-variant;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  z-index: $z-modal;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all $duration-normal $ease-in-out;
+  
+  &.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .cookie-content {
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+    padding: $space-4;
+    
+    @include mobile {
+      flex-direction: column;
+      text-align: center;
+      gap: $space-3;
+    }
+  }
+  
+  .cookie-icon {
+    font-size: $text-2xl;
+    flex-shrink: 0;
+  }
+  
+  .cookie-text {
+    flex: 1;
+    
+    p {
+      margin: 0;
+      @include body-medium;
+      color: $text-secondary;
+    }
+  }
+  
+  .cookie-actions {
+    display: flex;
+    gap: $space-3;
+    flex-shrink: 0;
+    
+    @include mobile {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+  .cookie-btn {
+    padding: $space-2 $space-4;
+    border-radius: $radius-md;
+    font-size: $text-sm;
+    font-weight: $font-medium;
+    border: none;
+    cursor: pointer;
+    transition: all $duration-normal $ease-in-out;
+    
+    &.cookie-accept {
+      background: $water-blue;
+      color: white;
+      
+      &:hover {
+        background: darken($water-blue, 10%);
+        transform: translateY(-1px);
+      }
+    }
+    
+    &.cookie-decline {
+      background: transparent;
+      color: $text-secondary;
+      border: 1px solid $dark-surface-variant;
+      
+      &:hover {
+        background: $dark-surface-variant;
+        color: $text-primary;
+      }
     }
   }
 }

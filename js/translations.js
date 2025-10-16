@@ -1,7 +1,7 @@
 // SmartHydra Landing Page - Translations
 // Centralized translation system based on app's localization
 
-const translations = {
+window.SmartHydraTranslations = {
   en: {
     // Navigation
     'nav-features': 'Features',
@@ -125,7 +125,12 @@ const translations = {
     'footer-copyright': '© 2025 SmartHydra. All rights reserved.',
     'footer-privacy': 'Privacy Policy',
     'footer-terms': 'Terms of Service',
-    'footer-cookies': 'Cookie Policy'
+    'footer-cookies': 'Cookie Policy',
+    
+    // Cookie Banner
+    'cookie-message': 'We use cookies to remember your language preference and improve your experience.',
+    'cookie-accept': 'Accept',
+    'cookie-decline': 'Decline'
   },
   
   el: {
@@ -266,7 +271,12 @@ const translations = {
     'footer-copyright': '© 2025 SmartHydra. Όλα τα δικαιώματα διατηρούνται.',
     'footer-privacy': 'Πολιτική Απορρήτου',
     'footer-terms': 'Όροι Υπηρεσίας',
-    'footer-cookies': 'Πολιτική Cookies'
+    'footer-cookies': 'Πολιτική Cookies',
+    
+    // Cookie Banner
+    'cookie-message': 'Χρησιμοποιούμε cookies για να θυμόμαστε την προτίμηση γλώσσας σας και να βελτιώνουμε την εμπειρία σας.',
+    'cookie-accept': 'Αποδοχή',
+    'cookie-decline': 'Απόρριψη'
   },
   
   ru: {
@@ -391,9 +401,11 @@ const translations = {
     'footer-copyright': '© 2025 SmartHydra. Все права защищены.',
     'footer-privacy': 'Политика конфиденциальности',
     'footer-terms': 'Условия использования',
-    'footer-cookies': 'Политика cookies'
+    'footer-cookies': 'Политика cookies',
+    
+    // Cookie Banner
+    'cookie-message': 'Мы используем файлы cookie для запоминания ваших языковых предпочтений и улучшения вашего опыта.',
+    'cookie-accept': 'Принять',
+    'cookie-decline': 'Отклонить'
   }
 };
-
-// Export for use in main.js
-window.SmartHydraTranslations = translations;
