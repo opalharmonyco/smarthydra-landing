@@ -1,9 +1,12 @@
 {
-  "redirects": [
+  "rewrites": [
     {
-      "source": "/",
-      "destination": "/coming-soon.html",
-      "permanent": false
+      "source": "/full-page",
+      "destination": "/index-full.html"
+    },
+    {
+      "source": "/preview",
+      "destination": "/index-full.html"
     }
   ],
   "headers": [
