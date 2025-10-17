@@ -1,8 +1,9 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/",
-      "destination": "/coming-soon.html"
+      "destination": "/coming-soon.html",
+      "permanent": false
     }
   ],
   "headers": [
