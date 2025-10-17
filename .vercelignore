@@ -15,9 +15,9 @@ scss/
 .git/
 .gitignore
 README.md
-package.json
-package-lock.json
-yarn.lock
+# package.json - needed for build process
+# package-lock.json - needed for dependencies
+# yarn.lock - needed for dependencies
 
 # IDE files
 .vscode/

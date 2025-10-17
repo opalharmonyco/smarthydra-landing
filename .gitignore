@@ -47,5 +47,5 @@ coverage/
 tmp/
 temp/
 
-# Coming soon page (handled by Vercel routing)
-coming-soon.html
+# Coming soon page is now included in deployment
+# coming-soon.html
