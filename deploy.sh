@@ -45,13 +45,17 @@ if [ "$ENVIRONMENT" = "production" ]; then
         echo "✅ Production setup complete"
         echo "   • index.html → Coming Soon page (default)"
         echo "   • index-full.html → Full landing page"
+        echo "   • coming-soon.html → Coming Soon page (for direct access)"
     elif [ "$HAS_FULL_PAGE" = false ] && [ "$HAS_COMING_SOON" = true ]; then
         echo "📁 Renaming files for production..."
         mv index.html index-full.html
         mv index-coming-soon.html index.html
+        # Ensure coming-soon.html exists for direct access
+        cp index.html coming-soon.html
         echo "✅ Production setup complete"
         echo "   • index.html → Coming Soon page (default)"
         echo "   • index-full.html → Full landing page"
+        echo "   • coming-soon.html → Coming Soon page (for direct access)"
     else
         echo "❌ Error: Unexpected file state for production setup"
         exit 1
@@ -68,14 +72,20 @@ elif [ "$ENVIRONMENT" = "local" ]; then
         echo "📁 Renaming files for local development..."
         mv index.html index-coming-soon.html
         mv index-full.html index.html
+        # Ensure coming-soon.html exists for direct access
+        cp index-coming-soon.html coming-soon.html
         echo "✅ Local development setup complete"
         echo "   • index.html → Full landing page (default)"
         echo "   • index-coming-soon.html → Coming soon page"
+        echo "   • coming-soon.html → Coming soon page (for direct access)"
     elif [ "$HAS_FULL_PAGE" = false ] && [ "$HAS_COMING_SOON" = true ]; then
         echo "📁 Already set up for local development"
+        # Ensure coming-soon.html exists for direct access
+        cp index-coming-soon.html coming-soon.html
         echo "✅ Local development setup complete"
         echo "   • index.html → Full landing page (default)"
         echo "   • index-coming-soon.html → Coming soon page"
+        echo "   • coming-soon.html → Coming soon page (for direct access)"
     else
         echo "❌ Error: Unexpected file state for local setup"
         exit 1
