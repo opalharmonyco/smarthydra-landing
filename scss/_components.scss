@@ -725,6 +725,10 @@
     }
 
     .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: $space-4;
+
       @include mobile {
         display: none;
       }
