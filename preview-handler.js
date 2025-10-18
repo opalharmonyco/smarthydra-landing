@@ -1,5 +1,5 @@
 // SmartHydra Landing Page - Preview Handler
-// Handles showing coming soon page vs full landing page based on URL parameters
+// Handles showing coming soon page vs full landing page based on environment and URL parameters
 
 (function() {
     'use strict';
@@ -7,16 +7,32 @@
     // Configuration
     const PREVIEW_PARAM = 'preview';
     const PREVIEW_SECRET = 'smarthydra-dev-2025'; // Change this to your secret
-    const COMING_SOON_PAGE = 'coming-soon.html';
+    const COMING_SOON_PARAM = 'coming-soon'; // For local development
+    const COMING_SOON_PAGE = 'index-coming-soon.html';
     const FULL_PAGE = 'index.html';
+    
+    // Environment detection
+    const isLocal = window.location.hostname === 'localhost' || 
+                   window.location.hostname === '127.0.0.1' || 
+                   window.location.hostname.includes('localhost');
+    const isProduction = window.location.hostname === 'smarthydra.app';
 
     // Check if we should show the full landing page
     function shouldShowFullPage() {
         const urlParams = new URLSearchParams(window.location.search);
         const previewParam = urlParams.get(PREVIEW_PARAM);
+        const comingSoonParam = urlParams.get(COMING_SOON_PARAM);
         
-        // Check if preview parameter matches our secret
-        return previewParam === PREVIEW_SECRET;
+        if (isLocal) {
+            // Local development: show full page by default, coming soon only with ?coming-soon=true
+            return comingSoonParam !== 'true';
+        } else if (isProduction) {
+            // Production: show coming soon by default, full page only with secret preview param
+            return previewParam === PREVIEW_SECRET;
+        } else {
+            // Other environments: default to coming soon
+            return previewParam === PREVIEW_SECRET;
+        }
     }
 
     // Redirect to appropriate page
@@ -24,19 +40,32 @@
         const currentPath = window.location.pathname;
         const isFullPage = currentPath.includes(FULL_PAGE) || currentPath === '/' || currentPath === '/index.html';
         const isComingSoonPage = currentPath.includes(COMING_SOON_PAGE);
+        const shouldShowFull = shouldShowFullPage();
         
-        if (shouldShowFullPage()) {
-            // User has preview access - show full page
-            if (isComingSoonPage) {
+        console.log('Preview Handler Debug:', {
+            currentPath,
+            isFullPage,
+            isComingSoonPage,
+            shouldShowFull,
+            isLocal,
+            isProduction,
+            search: window.location.search
+        });
+        
+        if (shouldShowFull) {
+            // Should show full page
+            if (isComingSoonPage || (currentPath === '/' && !isFullPage)) {
                 // Redirect from coming soon to full page
+                console.log('Redirecting to full page');
                 window.location.href = FULL_PAGE + window.location.search;
             }
             // If already on full page, stay there
         } else {
-            // User doesn't have preview access - show coming soon
-            if (isFullPage) {
+            // Should show coming soon page
+            if (isFullPage || (currentPath === '/' && isFullPage)) {
                 // Redirect from full page to coming soon
-                window.location.href = COMING_SOON_PAGE;
+                console.log('Redirecting to coming soon page');
+                window.location.href = COMING_SOON_PAGE + window.location.search;
             }
             // If already on coming soon page, stay there
         }
@@ -85,12 +114,18 @@
     console.log(`
 🐉 SmartHydra Landing Page Preview System
 
-To view the full landing page, add this parameter to the URL:
-?preview=${PREVIEW_SECRET}
+Environment: ${isLocal ? 'Local Development' : isProduction ? 'Production' : 'Other'}
+Current status: ${shouldShowFullPage() ? 'Full page active' : 'Coming soon page active'}
 
-Example: https://smarthydra.app/?preview=${PREVIEW_SECRET}
-
-Current status: ${shouldShowFullPage() ? 'Full page access granted' : 'Coming soon page active'}
+${isLocal ? `
+Local Development Mode:
+• Default: Full landing page (http://localhost:8080/)
+• Coming soon: Add ?coming-soon=true (http://localhost:8080/?coming-soon=true)
+` : `
+Production Mode:
+• Default: Coming soon page (https://smarthydra.app/)
+• Full page: Add ?preview=${PREVIEW_SECRET} (https://smarthydra.app/?preview=${PREVIEW_SECRET})
+`}
     `);
 
 })();
