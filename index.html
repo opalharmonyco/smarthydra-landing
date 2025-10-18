@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartHydra - Coming Soon</title>
-    <meta name="description" content="SmartHydra - Your smart hydration guardian is coming soon. Stay tuned for the ultimate hydration tracking experience.">
+    <title>SmartHydra - Your Smart Hydration Guardian</title>
+    <meta name="description" content="Meet SmartHydra, your friendly hydration guardian with multiple smart heads watching over your daily water intake. AI-powered reminders and intelligent tracking to keep you perfectly hydrated.">
+    <meta name="keywords" content="hydration tracker, water reminder, smart hydration, health app, water intake, hydration goals">
+    <meta name="author" content="SmartHydra">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smarthydra.app/">
-    <meta property="og:title" content="SmartHydra - Coming Soon">
-    <meta property="og:description" content="Your smart hydration guardian is coming soon. Stay tuned for the ultimate hydration tracking experience.">
+    <meta property="og:title" content="SmartHydra - Your Smart Hydration Guardian">
+    <meta property="og:description" content="Meet SmartHydra, your friendly hydration guardian with multiple smart heads watching over your daily water intake. AI-powered reminders and intelligent tracking to keep you perfectly hydrated.">
     <meta property="og:image" content="https://smarthydra.app/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://smarthydra.app/">
-    <meta property="twitter:title" content="SmartHydra - Coming Soon">
-    <meta property="twitter:description" content="Your smart hydration guardian is coming soon. Stay tuned for the ultimate hydration tracking experience.">
+    <meta property="twitter:title" content="SmartHydra - Your Smart Hydration Guardian">
+    <meta property="twitter:description" content="Meet SmartHydra, your friendly hydration guardian with multiple smart heads watching over your daily water intake. AI-powered reminders and intelligent tracking to keep you perfectly hydrated.">
     <meta property="twitter:image" content="https://smarthydra.app/og-image.png">
 
     <!-- Favicon -->
@@ -30,439 +32,618 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #121212 0%, #1E1E1E 100%);
-            color: #FFFFFF;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Animated background */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(0, 188, 212, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(33, 150, 243, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(255, 202, 40, 0.05) 0%, transparent 50%);
-            animation: backgroundShift 20s ease-in-out infinite;
-        }
-
-        @keyframes backgroundShift {
-            0%, 100% { transform: translateX(0) translateY(0); }
-            25% { transform: translateX(-20px) translateY(-10px); }
-            50% { transform: translateX(20px) translateY(10px); }
-            75% { transform: translateX(-10px) translateY(20px); }
-        }
-
-        .container {
-            text-align: center;
-            z-index: 1;
-            position: relative;
-            max-width: 600px;
-            padding: 2rem;
-        }
-
-        .logo {
-            display: inline-flex;
-            align-items: center;
-            margin-bottom: 2rem;
-            animation: logoFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .logo-icon {
-            width: 4rem;
-            height: 4rem;
-            margin-right: 1rem;
-            background: linear-gradient(135deg, #00BCD4, #2196F3);
-            border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
-            animation: logoGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes logoGlow {
-            0% { box-shadow: 0 0 20px rgba(0, 188, 212, 0.3); }
-            100% { box-shadow: 0 0 30px rgba(0, 188, 212, 0.5); }
-        }
-
-        .logo-text {
-            font-family: 'Google Sans', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #00BCD4, #2196F3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .title {
-            font-family: 'Google Sans', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #FFFFFF, #B3B3B3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: titleFadeIn 1s ease-out;
-        }
-
-        @keyframes titleFadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .subtitle {
-            font-size: 1.25rem;
-            color: #B3B3B3;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            animation: subtitleFadeIn 1s ease-out 0.3s both;
-        }
-
-        @keyframes subtitleFadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            animation: featuresFadeIn 1s ease-out 0.6s both;
-        }
-
-        @keyframes featuresFadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .feature {
-            background: rgba(30, 30, 30, 0.8);
-            border: 1px solid rgba(0, 188, 212, 0.2);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 188, 212, 0.4);
-            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #FFFFFF;
-        }
-
-        .feature-desc {
-            font-size: 0.9rem;
-            color: #B3B3B3;
-            line-height: 1.4;
-        }
-
-        .notify-section {
-            animation: notifyFadeIn 1s ease-out 0.9s both;
-        }
-
-        @keyframes notifyFadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .notify-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #FFFFFF;
-        }
-
-        .email-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 400px;
-            margin: 0 auto 2rem;
-        }
-
-        .email-input {
-            flex: 1;
-            padding: 0.75rem 1rem;
-            border: 1px solid rgba(0, 188, 212, 0.3);
-            border-radius: 0.5rem;
-            background: rgba(30, 30, 30, 0.8);
-            color: #FFFFFF;
-            font-size: 1rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: #00BCD4;
-            box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
-        }
-
-        .email-input::placeholder {
-            color: #808080;
-        }
-
-        .notify-btn {
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, #00BCD4, #2196F3);
-            border: none;
-            border-radius: 0.5rem;
-            color: #FFFFFF;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .notify-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 188, 212, 0.3);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 3rem;
-            height: 3rem;
-            background: rgba(30, 30, 30, 0.8);
-            border: 1px solid rgba(0, 188, 212, 0.2);
-            border-radius: 50%;
-            color: #B3B3B3;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .social-link:hover {
-            color: #00BCD4;
-            border-color: #00BCD4;
-            transform: translateY(-2px);
-        }
-
-        .footer {
-            position: absolute;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #808080;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-
-            .title {
-                font-size: 2.5rem;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .email-form {
-                flex-direction: column;
-            }
-
-            .logo-text {
-                font-size: 2rem;
-            }
-        }
-
-        /* Floating water drops animation */
-        .water-drops {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .water-drop {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(0, 188, 212, 0.6);
-            border-radius: 50%;
-            animation: drop 10s linear infinite;
-        }
-
-        @keyframes drop {
-            0% {
-                transform: translateY(-100vh) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-        }
-    </style>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-    <!-- Floating water drops -->
-    <div class="water-drops" id="water-drops"></div>
-
-    <div class="container">
-        <div class="logo">
-            <div class="logo-icon">💧</div>
-            <div class="logo-text">SmartHydra</div>
-        </div>
-
-        <h1 class="title">Coming Soon</h1>
-        <p class="subtitle">
-            Your smart hydration guardian is preparing to launch. 
-            Get ready for the ultimate hydration tracking experience with intelligent reminders and personalized insights.
-        </p>
-
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">🧠</div>
-                <div class="feature-title">Smart Reminders</div>
-                <div class="feature-desc">Intelligent scheduling based on your daily routine</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">📊</div>
-                <div class="feature-title">Detailed Analytics</div>
-                <div class="feature-desc">Comprehensive insights into your hydration patterns</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🎯</div>
-                <div class="feature-title">Personalized Goals</div>
-                <div class="feature-desc">Custom targets based on your lifestyle and needs</div>
-            </div>
-        </div>
-
-        <div class="notify-section">
-            <h2 class="notify-title">Be the first to know when we launch!</h2>
-            <form class="email-form" id="notify-form">
-                <input 
-                    type="email" 
-                    class="email-input" 
-                    placeholder="Enter your email address"
-                    required
-                >
-                <button type="submit" class="notify-btn">Notify Me</button>
-            </form>
-        </div>
-
-        <div class="social-links">
-            <a href="mailto:feedback@smarthydra.app" class="social-link" title="Contact Us">
-                📧
-            </a>
-        </div>
-    </div>
-
-    <div class="footer">
-        © 2025 SmartHydra. All rights reserved.
-    </div>
-
+<body class="loading">
+    <!-- Environment Detection Script -->
     <script>
-        // Create floating water drops
-        function createWaterDrops() {
-            const container = document.getElementById('water-drops');
-            const dropCount = 20;
-
-            for (let i = 0; i < dropCount; i++) {
-                const drop = document.createElement('div');
-                drop.className = 'water-drop';
-                drop.style.left = Math.random() * 100 + '%';
-                drop.style.animationDelay = Math.random() * 10 + 's';
-                drop.style.animationDuration = (Math.random() * 5 + 5) + 's';
-                container.appendChild(drop);
-            }
+        // Environment detection
+        const isLocal = window.location.hostname === 'localhost' || 
+                       window.location.hostname === '127.0.0.1' || 
+                       window.location.hostname.includes('localhost');
+        const isProduction = window.location.hostname === 'smarthydra.app';
+        
+        // URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const previewParam = urlParams.get('preview');
+        const comingSoonParam = urlParams.get('coming-soon');
+        const PREVIEW_SECRET = 'smarthydra-dev-2025';
+        
+        // Determine which page to show
+        let showComingSoon = false;
+        
+        if (isLocal) {
+            // Local development: show full page by default, coming soon only with ?coming-soon=true
+            showComingSoon = comingSoonParam === 'true';
+        } else if (isProduction) {
+            // Production: show coming soon by default, full page only with secret preview param
+            showComingSoon = previewParam !== PREVIEW_SECRET;
+        } else {
+            // Other environments: default to coming soon
+            showComingSoon = previewParam !== PREVIEW_SECRET;
         }
+        
+        // Set the page mode
+        document.documentElement.setAttribute('data-page-mode', showComingSoon ? 'coming-soon' : 'full-page');
+        
+        // Console message for developers
+        console.log(`
+🐉 SmartHydra Landing Page System
 
-        // Handle email notification form
-        document.getElementById('notify-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('.email-input').value;
+Environment: ${isLocal ? 'Local Development' : isProduction ? 'Production' : 'Other'}
+Page Mode: ${showComingSoon ? 'Coming Soon' : 'Full Landing Page'}
+
+${isLocal ? `
+Local Development Mode:
+• Default: Full landing page (http://localhost:8080/)
+• Coming soon: Add ?coming-soon=true (http://localhost:8080/?coming-soon=true)
+` : `
+Production Mode:
+• Default: Coming soon page (https://smarthydra.app/)
+• Full page: Add ?preview=${PREVIEW_SECRET} (https://smarthydra.app/?preview=${PREVIEW_SECRET})
+`}
+        `);
+    </script>
+
+    <!-- Coming Soon Page Content -->
+    <div id="coming-soon-content" style="display: none;">
+        <div class="container">
+            <div class="hero-section">
+                <div class="logo">
+                    <span class="water-drop">💧</span>
+                    <h1>SmartHydra</h1>
+                </div>
+                
+                <h2 class="title">Your Smart Hydration Guardian is Coming Soon</h2>
+                <p class="subtitle">Stay tuned for the ultimate hydration tracking experience with intelligent reminders and personalized insights.</p>
+                
+                <div class="features-preview">
+                    <div class="feature">
+                        <div class="icon">🧠</div>
+                        <h3>Smart Reminders</h3>
+                        <p>Intelligent scheduling based on your lifestyle</p>
+                    </div>
+                    <div class="feature">
+                        <div class="icon">📊</div>
+                        <h3>Detailed Analytics</h3>
+                        <p>Comprehensive insights into your hydration patterns</p>
+                    </div>
+                    <div class="feature">
+                        <div class="icon">🎯</div>
+                        <h3>Personalized Goals</h3>
+                        <p>Smart goal calculation for optimal hydration</p>
+                    </div>
+                </div>
+                
+                <div class="notify-section">
+                    <h3>Get Notified When We Launch</h3>
+                    <form id="notify-form" class="notify-form">
+                        <input 
+                            type="email" 
+                            class="email-input" 
+                            placeholder="Enter your email address"
+                            required
+                        >
+                        <button type="submit" class="notify-btn">Notify Me</button>
+                    </form>
+                </div>
+
+                <div class="social-links">
+                    <a href="mailto:feedback@smarthydra.app" class="social-link" title="Contact Us">
+                        📧
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer">
+                © 2025 SmartHydra. All rights reserved.
+            </div>
+        </div>
+        
+        <div id="water-drops"></div>
+    </div>
+
+    <!-- Full Landing Page Content -->
+    <div id="full-page-content" style="display: none;">
+        <!-- Navigation -->
+        <nav id="nav" class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <span class="water-drop">💧</span>
+                    <span class="logo-text">SmartHydra</span>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="#features" data-translate="nav-features">Features</a>
+                    <a href="#pricing" data-translate="nav-pricing">Pricing</a>
+                    <a href="#reviews" data-translate="nav-reviews">Reviews</a>
+                    <a href="#contact" data-translate="nav-contact">Contact</a>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="language-selector">
+                        <button id="language-btn" class="language-btn" aria-expanded="false">
+                            <span class="flag">🇬🇧</span>
+                            <span class="lang-code">EN</span>
+                        </button>
+                        <div id="language-dropdown" class="language-dropdown">
+                            <div class="language-option active" data-lang="en">
+                                <span class="flag">🇬🇧</span>
+                                <span class="lang-code">English</span>
+                            </div>
+                            <div class="language-option" data-lang="el">
+                                <span class="flag">🇬🇷</span>
+                                <span class="lang-code">Ελληνικά</span>
+                            </div>
+                            <div class="language-option" data-lang="ru">
+                                <span class="flag">🇷🇺</span>
+                                <span class="lang-code">Русский</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#download" class="btn btn-primary" data-translate="nav-download">Download Free</a>
+                </div>
+                
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">
+                    ☰
+                </button>
+            </div>
             
-            // Simple validation
-            if (email && email.includes('@')) {
-                // In a real implementation, you would send this to your backend
-                alert('Thank you! We\'ll notify you when SmartHydra launches.');
-                this.querySelector('.email-input').value = '';
+            <div id="mobile-menu" class="mobile-menu">
+                <div class="mobile-menu-header">
+                    <div class="mobile-logo">
+                        <span class="water-drop">💧</span>
+                        <span class="logo-text">SmartHydra</span>
+                    </div>
+                    <button id="close-mobile-menu" class="close-mobile-menu">✕</button>
+                </div>
+                
+                <div class="mobile-menu-content">
+                    <a href="#features" data-translate="nav-features">Features</a>
+                    <a href="#pricing" data-translate="nav-pricing">Pricing</a>
+                    <a href="#reviews" data-translate="nav-reviews">Reviews</a>
+                    <a href="#contact" data-translate="nav-contact">Contact</a>
+                    
+                    <div class="mobile-language-selector">
+                        <button id="mobile-language-btn" class="language-btn" aria-expanded="false">
+                            <span class="flag">🇬🇧</span>
+                            <span class="lang-code">EN</span>
+                        </button>
+                        <div id="mobile-language-dropdown" class="language-dropdown">
+                            <div class="language-option active" data-lang="en">
+                                <span class="flag">🇬🇧</span>
+                                <span class="lang-code">English</span>
+                            </div>
+                            <div class="language-option" data-lang="el">
+                                <span class="flag">🇬🇷</span>
+                                <span class="lang-code">Ελληνικά</span>
+                            </div>
+                            <div class="language-option" data-lang="ru">
+                                <span class="flag">🇷🇺</span>
+                                <span class="lang-code">Русский</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#download" class="btn btn-primary" data-translate="nav-download">Download Free</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="logo">
+                        <span class="water-drop">💧</span>
+                        <h1>SmartHydra</h1>
+                    </div>
+                    
+                    <h2 class="title" data-translate="hero-title">Your Smart Hydration Guardian</h2>
+                    <p class="subtitle" data-translate="hero-subtitle">Meet SmartHydra, your friendly hydration guardian with multiple smart heads watching over your daily water intake. Intelligent reminders and personalized tracking to keep you perfectly hydrated.</p>
+                    
+                    <div class="cta-buttons">
+                        <a href="#download" class="btn btn-primary app-store-btn" data-translate="hero-download-ios">
+                            📱 Download on the App Store
+                        </a>
+                        <a href="#download" class="btn btn-secondary app-store-btn" data-translate="hero-download-android">
+                            🤖 Get it on Google Play
+                        </a>
+                    </div>
+                    
+                    <div class="scroll-indicator">
+                        <span data-translate="hero-scroll">Scroll to explore</span>
+                        <span class="arrow">↓</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-translate="features-title">Why Choose SmartHydra?</h2>
+                    <p data-translate="features-subtitle">Experience the future of hydration tracking with intelligent features designed to keep you healthy and hydrated.</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h3 data-translate="feature-smart-reminders-title">Smart Reminders</h3>
+                        <p data-translate="feature-smart-reminders-desc">Intelligent reminder system that creates optimal schedules based on your wake/sleep times and distributes reminders evenly throughout your day.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3 data-translate="feature-detailed-tracking-title">Detailed Tracking</h3>
+                        <p data-translate="feature-detailed-tracking-desc">Comprehensive analytics and insights to help you understand your hydration patterns and improve your health over time.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3 data-translate="feature-personalized-goals-title">Personalized Goals</h3>
+                        <p data-translate="feature-personalized-goals-desc">Smart goal calculation based on your weight, activity level, and lifestyle for optimal hydration recommendations.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3 data-translate="feature-cross-platform-title">Cross-Platform Sync</h3>
+                        <p data-translate="feature-cross-platform-desc">Seamlessly sync your data across iOS, Android, and web. Your hydration data follows you everywhere you go.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h3 data-translate="feature-achievements-title">Achievement System</h3>
+                        <p data-translate="feature-achievements-desc">Gamified experience with achievements and streaks to keep you motivated and engaged with your hydration goals.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3 data-translate="feature-privacy-title">Privacy First</h3>
+                        <p data-translate="feature-privacy-desc">Your health data stays private and secure. We never sell your information and use encryption to protect your data.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label" data-translate="stat-users">Happy Users</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.8★</div>
+                        <div class="stat-label" data-translate="stat-rating">App Store Rating</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">1M+</div>
+                        <div class="stat-label" data-translate="stat-glasses">Glasses Tracked</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label" data-translate="stat-goals">Goal Achievement</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="reviews" class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-translate="testimonials-title">What Our Users Say</h2>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p data-translate="testimonial-1">"SmartHydra has completely changed how I think about hydration. The smart reminders are so intuitive and never annoying!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-name" data-translate="testimonial-1-author">Sarah M.</div>
+                            <div class="author-title" data-translate="testimonial-1-title">Fitness Enthusiast</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p data-translate="testimonial-2">"Finally, a hydration app that actually works! The intelligent system learns my patterns and reminds me at the perfect times."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-name" data-translate="testimonial-2-author">Mike R.</div>
+                            <div class="author-title" data-translate="testimonial-2-title">Busy Professional</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p data-translate="testimonial-3">"The cross-platform sync is amazing. I can track my hydration on my phone and check progress on my computer."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-name" data-translate="testimonial-3-author">Emma L.</div>
+                            <div class="author-title" data-translate="testimonial-3-title">Health Coach</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-translate="pricing-title">Choose Your Plan</h2>
+                    <p data-translate="pricing-subtitle">Start free and upgrade when you're ready for advanced features and unlimited tracking.</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card free">
+                        <div class="badge">
+                            <span class="badge-text" data-translate="plan-free-badge">Free Forever</span>
+                        </div>
+                        <h3 class="plan-name" data-translate="plan-free-name">Free</h3>
+                        <div class="plan-price">
+                            <span class="currency">$</span>0<span class="period" data-translate="plan-free-period">/month</span>
+                        </div>
+                        <p class="plan-description" data-translate="plan-free-description">Perfect for getting started with basic hydration tracking</p>
+                        
+                        <div class="features-list">
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-free-feature-1">Unlimited water logging</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-free-feature-2">12 smart reminders</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-free-feature-3">30-day history</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-free-feature-4">Basic achievements (12/14)</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-free-feature-5">Health app integration</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-free-feature-6">1 CSV export/month (logs only)</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✗</div>
+                                <span data-translate="plan-free-feature-7">Ad-free experience</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#download" class="btn btn-secondary cta" data-translate="plan-free-cta">Get Started Free</a>
+                    </div>
+                    
+                    <div class="pricing-card genius-hydra">
+                        <div class="badge">
+                            <span class="badge-text" data-translate="plan-genius-hydra-badge">Recommended</span>
+                        </div>
+                        <h3 class="plan-name" data-translate="plan-genius-hydra-name">GeniusHydra</h3>
+                        <div class="plan-price">
+                            <span class="currency">$</span><span data-translate="plan-genius-hydra-price">2.99</span><span class="period" data-translate="plan-genius-hydra-period">/month</span>
+                        </div>
+                        <p class="plan-description" data-translate="plan-genius-hydra-description">Unlock the full power of SmartHydra with unlimited features</p>
+                        
+                        <div class="features-list">
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-genius-hydra-feature-1">Everything in Free</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-genius-hydra-feature-2">Zero ads forever</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-genius-hydra-feature-3">Unlimited reminders</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-genius-hydra-feature-4">Auto cloud sync (all data)</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-genius-hydra-feature-5">Multi-device sync</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-genius-hydra-feature-6">Unlimited history</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-genius-hydra-feature-7">All achievements (20/20)</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-genius-hydra-feature-8">Unlimited exports (+JSON with ALL data)</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-genius-hydra-feature-9">Automatic data backups</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-genius-hydra-feature-10">Priority support</span>
+                            </div>
+                            <div class="feature">
+                                <div class="icon">✓</div>
+                                <span data-translate="plan-genius-hydra-feature-11">Early access to new features</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#download" class="btn btn-premium cta" data-translate="plan-genius-hydra-cta">Upgrade to GeniusHydra</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="download" class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 data-translate="cta-title">Ready to Stay Hydrated?</h2>
+                    <p data-translate="cta-subtitle">Join thousands of users who have transformed their hydration habits with SmartHydra. Download now and start your journey to better health.</p>
+                    
+                    <div class="cta-buttons">
+                        <a href="#download" class="btn btn-primary app-store-btn" data-translate="cta-download-ios">
+                            📱 Download on the App Store
+                        </a>
+                        <a href="#download" class="btn btn-secondary app-store-btn" data-translate="cta-download-android">
+                            🤖 Get it on Google Play
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <span class="water-drop">💧</span>
+                            <span class="logo-text">SmartHydra</span>
+                        </div>
+                        <p data-translate="footer-description">Your smart hydration guardian with intelligent reminders and personalized tracking.</p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4 data-translate="footer-product">Product</h4>
+                        <ul>
+                            <li><a href="#features" data-translate="nav-features">Features</a></li>
+                            <li><a href="#pricing" data-translate="nav-pricing">Pricing</a></li>
+                            <li><a href="#reviews" data-translate="nav-reviews">Reviews</a></li>
+                            <li><a href="#download" data-translate="nav-download">Download</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4 data-translate="footer-support">Support</h4>
+                        <ul>
+                            <li><a href="#contact" data-translate="nav-contact">Contact Us</a></li>
+                            <li><a href="#" data-translate="footer-help">Help Center</a></li>
+                            <li><a href="#" data-translate="footer-faq">FAQ</a></li>
+                            <li><a href="#" data-translate="footer-community">Community</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4 data-translate="footer-contact">Contact</h4>
+                        <p>feedback@smarthydra.app</p>
+                        <p data-translate="footer-contact-desc">We'd love to hear from you! Send us your feedback, questions, or suggestions.</p>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 SmartHydra. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#" data-translate="footer-privacy">Privacy Policy</a>
+                        <a href="#" data-translate="footer-terms">Terms of Service</a>
+                        <a href="#" data-translate="footer-cookies">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p data-translate="cookie-message">🍪 We use cookies to remember your language preference and improve your experience.</p>
+            <div class="cookie-actions">
+                <button id="cookie-accept" class="btn btn-primary" data-translate="cookie-accept">Accept</button>
+                <button id="cookie-decline" class="btn btn-secondary" data-translate="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Page Mode Script -->
+    <script>
+        // Show the appropriate content based on page mode
+        document.addEventListener('DOMContentLoaded', function() {
+            const pageMode = document.documentElement.getAttribute('data-page-mode');
+            const comingSoonContent = document.getElementById('coming-soon-content');
+            const fullPageContent = document.getElementById('full-page-content');
+            
+            if (pageMode === 'coming-soon') {
+                comingSoonContent.style.display = 'block';
+                fullPageContent.style.display = 'none';
+                
+                // Initialize coming soon page functionality
+                initializeComingSoonPage();
             } else {
-                alert('Please enter a valid email address.');
+                comingSoonContent.style.display = 'none';
+                fullPageContent.style.display = 'block';
             }
         });
+        
+        function initializeComingSoonPage() {
+            // Create floating water drops
+            function createWaterDrops() {
+                const container = document.getElementById('water-drops');
+                if (!container) return;
+                
+                const dropCount = 20;
+                for (let i = 0; i < dropCount; i++) {
+                    const drop = document.createElement('div');
+                    drop.className = 'water-drop';
+                    drop.style.left = Math.random() * 100 + '%';
+                    drop.style.animationDelay = Math.random() * 10 + 's';
+                    drop.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                    container.appendChild(drop);
+                }
+            }
 
-        // Initialize water drops
-        createWaterDrops();
+            // Handle email notification form
+            const notifyForm = document.getElementById('notify-form');
+            if (notifyForm) {
+                notifyForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('.email-input').value;
+                    
+                    // Simple validation
+                    if (email && email.includes('@')) {
+                        // In a real implementation, you would send this to your backend
+                        alert('Thank you! We\'ll notify you when SmartHydra launches.');
+                        this.querySelector('.email-input').value = '';
+                    } else {
+                        alert('Please enter a valid email address.');
+                    }
+                });
+            }
 
-        // Add some interactivity
-        document.querySelectorAll('.feature').forEach(feature => {
-            feature.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.02)';
+            // Initialize water drops
+            createWaterDrops();
+
+            // Add some interactivity
+            document.querySelectorAll('.feature').forEach(feature => {
+                feature.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                feature.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
             });
-            
-            feature.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
+        }
     </script>
-    
-    <!-- Preview Handler for Developer Access -->
-    <script src="preview-handler.js"></script>
 </body>
 </html>
