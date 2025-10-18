@@ -338,6 +338,8 @@
     text-align: center;
     position: relative;
     transition: all $duration-normal $ease-in-out;
+    display: flex;
+    flex-direction: column;
 
     .badge-text {
       position: relative;
@@ -495,6 +497,21 @@
           background: linear-gradient(135deg, $water-blue, $accent-cyan);
           box-shadow: 0 2px 8px rgba(0, 188, 212, 0.3);
         }
+      }
+    }
+
+    // Plan spacer to push CTA button to bottom
+    .plan-spacer {
+      flex-grow: 1;
+      min-height: $space-6;
+    }
+
+    // Highlight features with bold text
+    .feature.highlight {
+      font-weight: $font-semibold;
+      
+      strong {
+        color: $water-blue;
       }
     }
 
